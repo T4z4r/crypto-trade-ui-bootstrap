@@ -22,6 +22,10 @@ body {
   color: var(--accent);
   letter-spacing: 0.6px;
 }
+.brand-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
 .bg-card {
   background: var(--card);
 }
