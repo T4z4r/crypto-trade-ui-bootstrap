@@ -6,6 +6,7 @@
   <title>Cryptix — Wallet</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/styles.css" rel="stylesheet">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body class="bg-app text-light">
   <!-- Page Loader -->
@@ -209,8 +210,9 @@
                   <path d="M21 21V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" stroke="currentColor" stroke-width="1.6"/>
                   <path d="M3 7h18" stroke="currentColor" stroke-width="1.6"/>
                   <path d="M7 12v9" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M7 12v9" stroke="currentColor" stroke-width="1.6"/>
                   <path d="M11 12v9" stroke="currentColor" stroke-width="1.6"/>
-                  <path d="15 12v9" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M15 12v9" stroke="currentColor" stroke-width="1.6"/>
                 </svg>
                 <span>Charts</span>
               </a>
@@ -517,5 +519,142 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/app.js"></script>
+
+  <!-- Wallet-specific chart functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize portfolio chart
+      initializePortfolioChart();
+    });
+
+    function initializePortfolioChart() {
+      const portfolioChartContainer = document.getElementById('portfolioChart');
+      if (!portfolioChartContainer) return;
+
+      // Generate portfolio value data for the last 30 days
+      function generatePortfolioData(days = 30) {
+        const data = [];
+        let baseValue = 18500; // Starting portfolio value
+
+        for (let i = days; i >= 0; i--) {
+          // Generate realistic portfolio value changes
+          const change = (Math.random() - 0.5) * 800; // Random change between -400 and +400
+          baseValue = Math.max(baseValue + change, 12000); // Don't go below $12,000
+
+          data.push([
+            Date.now() - (i * 24 * 60 * 60 * 1000), // Timestamp for each day
+            Math.round(baseValue)
+          ]);
+        }
+
+        return data;
+      }
+
+      // Create portfolio chart
+      const chart = Highcharts.chart('portfolioChart', {
+        chart: {
+          type: 'area',
+          backgroundColor: 'transparent',
+          height: 250,
+          animation: {
+            duration: 1000,
+            easing: 'easeInOutQuart'
+          }
+        },
+        title: {
+          text: null
+        },
+        xAxis: {
+          type: 'datetime',
+          gridLineColor: 'rgba(255, 255, 255, 0.02)',
+          lineColor: 'rgba(255, 255, 255, 0.05)',
+          tickColor: 'rgba(255, 255, 255, 0.05)',
+          labels: {
+            style: {
+              color: 'rgba(255, 255, 255, 0.6)',
+              fontSize: '11px'
+            }
+          }
+        },
+        yAxis: {
+          opposite: true,
+          gridLineColor: 'rgba(255, 255, 255, 0.02)',
+          lineColor: 'rgba(255, 255, 255, 0.05)',
+          tickColor: 'rgba(255, 255, 255, 0.05)',
+          labels: {
+            style: {
+              color: 'rgba(255, 255, 255, 0.6)',
+              fontSize: '11px'
+            },
+            formatter: function() {
+              return '$' + this.value.toLocaleString();
+            }
+          }
+        },
+        legend: {
+          enabled: false
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 32, 0.9)',
+          borderColor: 'rgba(16, 185, 129, 0.5)',
+          borderRadius: 8,
+          style: {
+            color: '#e6eef6'
+          },
+          formatter: function() {
+            return '<b>' + new Date(this.x).toLocaleDateString() + '</b><br/>Portfolio Value: $' + this.y.toLocaleString();
+          }
+        },
+        plotOptions: {
+          area: {
+            fillColor: {
+              linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+              stops: [
+                [0, 'rgba(16, 185, 129, 0.3)'],
+                [1, 'rgba(16, 185, 129, 0.0)']
+              ]
+            },
+            marker: {
+              radius: 2
+            },
+            lineWidth: 2,
+            states: {
+              hover: {
+                lineWidth: 2
+              }
+            },
+            threshold: null
+          }
+        },
+        series: [{
+          type: 'area',
+          name: 'Portfolio Value',
+          data: generatePortfolioData(),
+          color: '#10b981',
+          lineColor: '#10b981'
+        }]
+      });
+
+      // Update chart every 5 seconds with new data point
+      setInterval(() => {
+        const currentData = chart.series[0].data;
+        const lastPoint = currentData[currentData.length - 1];
+        const lastValue = lastPoint.y;
+        const change = (Math.random() - 0.5) * 200; // Smaller changes for portfolio
+        const newValue = Math.max(lastValue + change, 12000);
+
+        // Add new data point
+        currentData.addPoint([
+          Date.now(),
+          Math.round(newValue)
+        ], true, false);
+
+        // Keep only last 30 points for performance
+        if (currentData.length > 30) {
+          currentData.removePoint(0, false);
+        }
+      }, 5000);
+    }
+  </script>
 </body>
 </html>
