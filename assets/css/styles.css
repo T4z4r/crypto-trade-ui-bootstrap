@@ -275,9 +275,12 @@ body {
 }
 .section {
   transition: opacity 0.18s ease;
+  opacity: 1;
+  display: block;
 }
 .active-section {
   opacity: 1;
+  display: block;
 }
 .section.d-none {
   opacity: 0;
@@ -302,11 +305,318 @@ body {
   text-shadow: 0 0 6px rgba(16, 185, 129, 0.12) !important;
 }
 .nav-link.active {
+   background: rgba(16, 185, 129, 0.12) !important;
+   box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08) !important;
+   color: #d1fae5 !important;
+   text-shadow: 0 0 8px rgba(16, 185, 129, 0.16) !important;
+   border: 2px solid rgba(16, 185, 129, 0.2) !important;
+ }
+
+/* Normal HTML Navigation Styles */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background: rgba(16, 185, 129, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.06) !important;
+  color: #d1fae5 !important;
+  text-shadow: 0 0 6px rgba(16, 185, 129, 0.12) !important;
+  text-decoration: none;
+}
+
+.nav-item.active {
   background: rgba(16, 185, 129, 0.12) !important;
   box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08) !important;
   color: #d1fae5 !important;
   text-shadow: 0 0 8px rgba(16, 185, 129, 0.16) !important;
   border: 2px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Light mode styles for normal HTML navigation */
+.light-mode .nav-item {
+  color: var(--text) !important;
+}
+
+.light-mode .nav-item:hover {
+  background: rgba(16, 185, 129, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.06) !important;
+  color: var(--accent) !important;
+}
+
+.light-mode .nav-item.active {
+  background: rgba(16, 185, 129, 0.12) !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.16) !important;
+  border: 2px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Attractive Page Header Styles */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(98, 0, 255, 0.1));
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 12px;
+}
+
+.page-header-icon svg {
+  width: 24px;
+  height: 24px;
+  z-index: 1;
+  position: relative;
+  color: #065f46;
+}
+
+/* Dark mode icon colors */
+.dashboard-header .page-header-icon svg {
+  color: #10b981;
+}
+
+.trading-header .page-header-icon svg {
+  color: #f56565;
+}
+
+.wallet-header .page-header-icon svg {
+  color: #9f7aea;
+}
+
+.transactions-header .page-header-icon svg {
+  color: #fb923c;
+}
+
+.profile-header .page-header-icon svg {
+  color: #b794f6;
+}
+
+.page-header-title {
+  color: #10b981;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
+}
+
+/* Dark mode title colors */
+.dashboard-header .page-header-title {
+  color: #10b981;
+}
+
+.trading-header .page-header-title {
+  color: #f56565;
+}
+
+.wallet-header .page-header-title {
+  color: #9f7aea;
+}
+
+.transactions-header .page-header-title {
+  color: #fb923c;
+}
+
+.profile-header .page-header-title {
+  color: #b794f6;
+}
+
+.page-header-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+
+/* Dashboard specific styling */
+.dashboard-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(98, 0, 255, 0.1));
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.dashboard-header .page-header-title {
+  color: #10b981;
+}
+
+/* Trading specific styling */
+.trading-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(245, 101, 101, 0.15), rgba(98, 0, 255, 0.1));
+  border-color: rgba(245, 101, 101, 0.2);
+}
+
+.trading-header .page-header-title {
+  color: #f56565;
+}
+
+/* Wallet specific styling */
+.wallet-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(98, 0, 255, 0.15), rgba(16, 185, 129, 0.1));
+  border-color: rgba(98, 0, 255, 0.2);
+}
+
+.wallet-header .page-header-title {
+  color: #6200ff;
+}
+
+/* Transactions specific styling */
+.transactions-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(98, 0, 255, 0.1));
+  border-color: rgba(251, 146, 60, 0.2);
+}
+
+.transactions-header .page-header-title {
+  color: #fb923c;
+}
+
+/* Profile specific styling */
+.profile-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(16, 185, 129, 0.1));
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.profile-header .page-header-title {
+  color: #8b5cf6;
+}
+
+/* Light mode overrides */
+.light-mode .page-header-icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(98, 0, 255, 0.08));
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+}
+
+.light-mode .page-header-icon svg {
+  color: #047857;
+}
+
+.light-mode .page-header-title {
+  color: #047857;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .page-header-subtitle {
+  color: #4b5563;
+}
+
+/* Dashboard light mode */
+.light-mode .dashboard-header .page-header-title {
+  color: #059669;
+}
+
+.light-mode .dashboard-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(34, 197, 94, 0.1));
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.light-mode .dashboard-header .page-header-icon svg {
+  color: #047857;
+}
+
+/* Trading light mode */
+.light-mode .trading-header .page-header-title {
+  color: #dc2626;
+}
+
+.light-mode .trading-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 101, 101, 0.1));
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.light-mode .trading-header .page-header-icon svg {
+  color: #b91c1c;
+}
+
+/* Wallet light mode */
+.light-mode .wallet-header .page-header-title {
+  color: #7c3aed;
+}
+
+.light-mode .wallet-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(147, 51, 234, 0.1));
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.light-mode .wallet-header .page-header-icon svg {
+  color: #6d28d9;
+}
+
+/* Transactions light mode */
+.light-mode .transactions-header .page-header-title {
+  color: #ea580c;
+}
+
+.light-mode .transactions-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.15), rgba(251, 146, 60, 0.1));
+  border-color: rgba(234, 88, 12, 0.3);
+}
+
+.light-mode .transactions-header .page-header-icon svg {
+  color: #c2410c;
+}
+
+/* Profile light mode */
+.light-mode .profile-header .page-header-title {
+  color: #7c3aed;
+}
+
+.light-mode .profile-header .page-header-icon {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(139, 92, 246, 0.1));
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.light-mode .profile-header .page-header-icon svg {
+  color: #6d28d9;
+}
+
+/* Light mode section visibility fixes */
+.light-mode .section {
+  opacity: 1 !important;
+  display: block !important;
+}
+
+.light-mode .section.d-none {
+  opacity: 0 !important;
+  display: none !important;
 }
 
 /* Authentication Modal Styles */
