@@ -1,11 +1,5 @@
 // app.js - handles theme toggle, trading functionality, and UI interactions
 document.addEventListener('DOMContentLoaded', function () {
-  // Sidebar toggle functionality (works on all pages)
-  const sidebarToggle = document.getElementById('sidebarToggle');
-  const sidebar = document.querySelector('.sidebar');
-  const sidebarOverlay = document.createElement('div');
-  sidebarOverlay.className = 'sidebar-overlay';
-
   // Theme toggle functionality (works on all pages)
   const themeToggle = document.getElementById('themeToggle');
   const sunIcon = document.getElementById('sunIcon');
@@ -26,48 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Dashboard-specific elements (only exist on dashboard page)
   const recentTrades = document.getElementById('recentTrades');
   const goTrading = document.getElementById('goTrading');
-
-  // Sidebar toggle functionality
-  function initializeSidebar() {
-    // Add overlay to body for mobile
-    document.body.appendChild(sidebarOverlay);
-
-    // Load saved sidebar state
-    const savedSidebarState = localStorage.getItem('sidebarCollapsed') === 'true';
-    if (savedSidebarState && window.innerWidth >= 768) {
-      sidebar.classList.add('collapsed');
-    }
-
-    // Sidebar toggle event
-    if (sidebarToggle) {
-      sidebarToggle.addEventListener('click', () => {
-        if (window.innerWidth < 768) {
-          // Mobile: show/hide overlay sidebar
-          sidebar.classList.toggle('show');
-          sidebarOverlay.classList.toggle('show');
-        } else {
-          // Desktop: collapse/expand sidebar
-          sidebar.classList.toggle('collapsed');
-          const isCollapsed = sidebar.classList.contains('collapsed');
-          localStorage.setItem('sidebarCollapsed', isCollapsed);
-        }
-      });
-    }
-
-    // Close sidebar when clicking overlay on mobile
-    sidebarOverlay.addEventListener('click', () => {
-      sidebar.classList.remove('show');
-      sidebarOverlay.classList.remove('show');
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        sidebar.classList.remove('show');
-        sidebarOverlay.classList.remove('show');
-      }
-    });
-  }
 
   // Theme toggle functionality (works on all pages)
   function initializeTheme() {
@@ -413,7 +365,109 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // initial setup
-  initializeSidebar();
   initializeTheme();
   if (priceInput && amountInput && estimatedTotal) updateEstimated();
 });
+
+// ========================================
+// PAGE LOADER FUNCTIONALITY
+// ========================================
+
+// Page Loader Management
+class PageLoader {
+ constructor() {
+   this.loader = document.getElementById('pageLoader');
+   this.statusText = document.querySelector('.loader-status');
+   this.progressBar = document.querySelector('.loader-progress-bar');
+   this.loadSteps = [
+     'Initializing Cryptix',
+     'Loading assets',
+     'Connecting to markets',
+     'Preparing interface',
+     'Ready to trade'
+   ];
+   this.currentStep = 0;
+   this.progressInterval = null;
+ }
+
+ show() {
+   if (this.loader) {
+     this.loader.classList.remove('hidden');
+     this.currentStep = 0;
+     this.updateStatus();
+     this.startProgress();
+   }
+ }
+
+ hide() {
+   if (this.loader) {
+     this.loader.classList.add('hidden');
+     this.stopProgress();
+   }
+ }
+
+ updateStatus() {
+   if (this.statusText && this.loadSteps[this.currentStep]) {
+     this.statusText.textContent = this.loadSteps[this.currentStep];
+   }
+ }
+
+ startProgress() {
+   this.stopProgress();
+   this.progressInterval = setInterval(() => {
+     this.currentStep++;
+     if (this.currentStep >= this.loadSteps.length) {
+       this.currentStep = 0;
+     }
+     this.updateStatus();
+   }, 800);
+ }
+
+ stopProgress() {
+   if (this.progressInterval) {
+     clearInterval(this.progressInterval);
+     this.progressInterval = null;
+   }
+ }
+
+ // Simulate loading for demo purposes
+ simulateLoad(duration = 2500) {
+   this.show();
+   setTimeout(() => {
+     this.hide();
+   }, duration);
+ }
+}
+
+// Initialize page loader
+const pageLoader = new PageLoader();
+
+// Show loader on page load
+document.addEventListener('DOMContentLoaded', function() {
+ // Simulate initial loading
+ pageLoader.simulateLoad(2000);
+});
+
+// Navigation loader functionality
+document.addEventListener('DOMContentLoaded', function() {
+ // Handle navigation clicks for demo purposes
+ const navLinks = document.querySelectorAll('.nav-item, .nav-link');
+
+ navLinks.forEach(link => {
+   link.addEventListener('click', function(e) {
+     // Only show loader for internal navigation (demo)
+     if (this.getAttribute('href') && this.getAttribute('href').includes('.html')) {
+       e.preventDefault();
+       pageLoader.simulateLoad(1500);
+
+       // Simulate page transition
+       setTimeout(() => {
+         window.location.href = this.getAttribute('href');
+       }, 1500);
+     }
+   });
+ });
+});
+
+// Export for use in other scripts if needed
+window.PageLoader = pageLoader;
