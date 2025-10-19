@@ -9,13 +9,14 @@ window.appInitialized = false;
 // Apply theme immediately to prevent flash
 (function() {
   const savedTheme = localStorage.getItem('theme') || 'dark';
+  const htmlElement = document.documentElement;
+
   if (savedTheme === 'light') {
-    document.documentElement.classList.add('light-mode');
-    // Set data attribute for additional CSS-based theme control
-    document.documentElement.setAttribute('data-theme', 'light');
+    htmlElement.classList.add('light-mode');
+    htmlElement.setAttribute('data-theme', 'light');
   } else {
-    document.documentElement.classList.remove('light-mode');
-    document.documentElement.setAttribute('data-theme', 'dark');
+    htmlElement.classList.remove('light-mode');
+    htmlElement.setAttribute('data-theme', 'dark');
   }
 })();
 
@@ -207,14 +208,16 @@ document.addEventListener('DOMContentLoaded', function () {
   function initializeTheme() {
     // Theme class is already applied immediately above, just update icons and data attribute
     const savedTheme = localStorage.getItem('theme') || 'dark';
+    const htmlElement = document.documentElement;
+
     if (savedTheme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
+      htmlElement.setAttribute('data-theme', 'light');
       if (sunIcon && moonIcon) {
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
       }
     } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
+      htmlElement.setAttribute('data-theme', 'dark');
       if (sunIcon && moonIcon) {
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
@@ -224,18 +227,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const isLight = document.body.classList.contains('light-mode');
+      const htmlElement = document.documentElement;
+      const isLight = htmlElement.classList.contains('light-mode');
+
       if (isLight) {
-        document.body.classList.remove('light-mode');
-        document.documentElement.setAttribute('data-theme', 'dark');
+        // Switch to dark mode
+        htmlElement.classList.remove('light-mode');
+        htmlElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
         if (sunIcon && moonIcon) {
           sunIcon.style.display = 'block';
           moonIcon.style.display = 'none';
         }
       } else {
-        document.body.classList.add('light-mode');
-        document.documentElement.setAttribute('data-theme', 'light');
+        // Switch to light mode
+        htmlElement.classList.add('light-mode');
+        htmlElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
         if (sunIcon && moonIcon) {
           sunIcon.style.display = 'none';
