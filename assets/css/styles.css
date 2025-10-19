@@ -19,4 +19,6 @@ body{background:var(--bg-app);color:var(--text);font-family:Inter,system-ui,-app
 .section.d-none{opacity:0;display:none}
 .small{font-size:.88rem}
 .nav-link{display:flex;align-items:center;gap:.6rem;border-radius:.5rem;padding:.5rem .75rem;border:0;color:inherit}
-.nav-link.active{background:rgba(0,255,196,0.08);box-shadow:0 6px 18px rgba(0,255,196,0.06);color:#eafff7;text-shadow:0 0 8px rgba(0,255,196,0.12)}
+.nav-link:hover{background:rgba(16,185,129,0.08)!important; box-shadow:0 4px 12px rgba(16,185,129,0.06)!important;color:#d1fae5!important;text-shadow:0 0 6px rgba(16,185,129,0.12)!important}
+.nav-link.active{background:rgba(16,185,129,0.12)!important;box-shadow:0 6px 18px rgba(16,185,129,0.08)!important;color:#d1fae5!important;text-shadow:0 0 8px rgba(16,185,129,0.16)!important;border:2px solid rgba(16,185,129,0.2)!important}
+
