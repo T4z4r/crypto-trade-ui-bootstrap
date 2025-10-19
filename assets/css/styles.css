@@ -1,38 +1,164 @@
 /* Compiled styles.css (derived from styles.scss) */
-:root{--bg-app:#0b0f12;--card:#0f1720;--card-darker:#0b1116;--text:#e6eef6;--muted:#9aa4b2;--accent:#10b981}
-body{background:var(--bg-app);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;margin:0}
-.sidebar{background:linear-gradient(180deg,#071018 0%, #0b1116 100%);border-right:1px solid rgba(255,255,255,0.03)}
-.brand{color:var(--accent);letter-spacing:0.6px}
-.bg-card{background:var(--card)}
-.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:none;border-radius:12px}
-.card-dark{background:var(--card);border-radius:.75rem;color:var(--text)}
-.card-darker{background:var(--card-darker);border-radius:.5rem;color:var(--text)}
-.muted{color:var(--muted)}
-.text-muted{color:var(--muted)}
-.chart-area{height:260px;display:flex;align-items:center;justify-content:center;color:var(--muted);background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
-.btn-success{background:var(--accent);border-color:var(--accent)}
-.btn-success:hover{filter:brightness(.95)}
-.orderbook li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
-.orderbook li:last-child{border-bottom:none}
-.section{transition:opacity .18s ease}
-.active-section{opacity:1}
-.section.d-none{opacity:0;display:none}
-.small{font-size:.88rem}
-.nav-link{display:flex;align-items:center;gap:.6rem;border-radius:.5rem;padding:.5rem .75rem;border:0;color:inherit}
-.nav-link:hover{background:rgba(16,185,129,0.08)!important; box-shadow:0 4px 12px rgba(16,185,129,0.06)!important;color:#d1fae5!important;text-shadow:0 0 6px rgba(16,185,129,0.12)!important}
-.nav-link.active{background:rgba(16,185,129,0.12)!important;box-shadow:0 6px 18px rgba(16,185,129,0.08)!important;color:#d1fae5!important;text-shadow:0 0 8px rgba(16,185,129,0.16)!important;border:2px solid rgba(16,185,129,0.2)!important}
+:root {
+  --bg-app: #0b0f12;
+  --card: #0f1720;
+  --card-darker: #0b1116;
+  --text: #e6eef6;
+  --muted: #9aa4b2;
+  --accent: #10b981;
+}
+body {
+  background: var(--bg-app);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  margin: 0;
+}
+.sidebar {
+  background: linear-gradient(180deg, #071018 0%, #0b1116 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+}
+.brand {
+  color: var(--accent);
+  letter-spacing: 0.6px;
+}
+.bg-card {
+  background: var(--card);
+}
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: none;
+  border-radius: 12px;
+}
+.card-dark {
+  background: var(--card);
+  border-radius: 0.75rem;
+  color: var(--text);
+}
+.card-darker {
+  background: var(--card-darker);
+  border-radius: 0.5rem;
+  color: var(--text);
+}
+.muted {
+  color: var(--muted);
+}
+.text-muted {
+  color: var(--muted);
+}
+.chart-area {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.btn-success {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn-success:hover {
+  filter: brightness(0.95);
+}
+.orderbook li {
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
+}
+.orderbook li:last-child {
+  border-bottom: none;
+}
+.section {
+  transition: opacity 0.18s ease;
+}
+.active-section {
+  opacity: 1;
+}
+.section.d-none {
+  opacity: 0;
+  display: none;
+}
+.small {
+  font-size: 0.88rem;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  color: inherit;
+}
+.nav-link:hover {
+  background: rgba(16, 185, 129, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.06) !important;
+  color: #d1fae5 !important;
+  text-shadow: 0 0 6px rgba(16, 185, 129, 0.12) !important;
+}
+.nav-link.active {
+  background: rgba(16, 185, 129, 0.12) !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08) !important;
+  color: #d1fae5 !important;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.16) !important;
+  border: 2px solid rgba(16, 185, 129, 0.2) !important;
+}
 
 /* Authentication Modal Styles */
-.modal-content.bg-card{background:var(--card)!important;border:1px solid rgba(255,255,255,0.05)!important}
-.bg-darker{background:var(--card-darker)!important;border:1px solid rgba(255,255,255,0.03)!important}
-.form-control.bg-darker{background:var(--card-darker)!important;border:1px solid rgba(255,255,255,0.05)!important;color:var(--text)!important}
-.form-control.bg-darker:focus{background:var(--card-darker)!important;border-color:var(--accent)!important;box-shadow:0 0 0 0.2rem rgba(16,185,129,0.25)!important;color:var(--text)!important}
-.form-control.bg-darker::placeholder{color:var(--muted)!important;opacity:0.7!important}
-.form-check-input:checked{background-color:var(--accent)!important;border-color:var(--accent)!important}
-.btn-close-white{filter:invert(1)!important}
-#authModal .modal-title{color:var(--text)!important;font-weight:600}
-#authModal .text-muted{color:var(--muted)!important}
-#authModal .form-label{color:var(--text)!important;font-weight:500}
-#authModal .form-check-label{color:var(--muted)!important}
-#authModal .small{color:var(--muted)!important}
-
+.modal-content.bg-card {
+  background: var(--card) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+.bg-darker {
+  background: var(--card-darker) !important;
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+.form-control.bg-darker {
+  background: var(--card-darker) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: var(--text) !important;
+}
+.form-control.bg-darker:focus {
+  background: var(--card-darker) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.25) !important;
+  color: var(--text) !important;
+}
+.form-control.bg-darker::placeholder {
+  color: var(--muted) !important;
+  opacity: 0.7 !important;
+}
+.form-check-input:checked {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+.btn-close-white {
+  filter: invert(1) !important;
+}
+#authModal .modal-title {
+  color: var(--text) !important;
+  font-weight: 600;
+}
+#authModal .text-muted {
+  color: var(--muted) !important;
+}
+#authModal .form-label {
+  color: var(--text) !important;
+  font-weight: 500;
+}
+#authModal .form-check-label {
+  color: var(--muted) !important;
+}
+#authModal .small {
+  color: var(--muted) !important;
+}
