@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cryptix — Forms</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-app text-light">
+  <!-- Page Loader -->
+  <div id="pageLoader" class="page-loader">
+    <div class="loader-container">
+      <div class="loader-content">
+        <!-- Brand Logo -->
+        <div class="loader-brand">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="loader-brand-icon">
+            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <h2 class="loader-brand-text">Cryptix</h2>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="loader-animation">
+          <div class="loader-spinner"></div>
+          <div class="loader-bars">
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+          </div>
+        </div>
+
+        <!-- Loading Text -->
+        <div class="loader-text">
+          <span class="loader-status">Loading</span>
+          <div class="loader-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="loader-progress">
+          <div class="loader-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row gx-0">
+      <!-- Sidebar -->
+      <aside class="col-12 col-md-2 sidebar p-4 vh-100 d-flex flex-column">
+        <div class="mb-4">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <!-- Crypto/Brand icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-icon">
+              <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <h3 class="brand mb-0">Cryptix</h3>
+          </div>
+          <div class="text-muted small">v0.1</div>
+        </div>
+
+        <nav id="sidebarNav"
+          style="background: linear-gradient(135deg, rgba(0,255,196,0.06), rgba(98,0,255,0.04));
+              padding: .5rem;
+              border-radius: .75rem;
+              box-shadow: 0 8px 30px rgba(98,0,255,0.06), inset 0 0 40px rgba(0,255,196,0.02);">
+          <ul class="nav-list mb-3">
+            <li>
+              <a href="dashboard.html" class="nav-item">
+                <!-- Home / Dashboard icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M5 21h14a1 1 0 0 0 1-1V11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M9 21V13h6v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="trading.html" class="nav-item">
+                <!-- Chart icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M6 14l4-6 4 8 4-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Trading</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="wallet.html" class="nav-item">
+                <!-- Wallet icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="1.6" />
+               <path d="M16 10h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+               <path d="M2 10h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span>Wallet</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="transactions.html" class="nav-item">
+                <!-- Transactions / List icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M8 6h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+               <path d="M8 12h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+               <path d="M8 18h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+               <path d="M3 6h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+               <path d="M3 12h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+               <path d="M3 18h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span>Transactions</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="profile.html" class="nav-item">
+                <!-- User / Profile icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Profile</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="icons.html" class="nav-item">
+                <!-- Icons icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span>Icons</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="forms.html" class="nav-item active">
+                <!-- Forms icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Forms</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="tables.html" class="nav-item">
+                <!-- Tables icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M3 6h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M11 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M19 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 10h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 14h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Tables</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="mt-auto small text-secondary">© 2025 Cryptix</div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="col-12 col-md-10 p-4">
+        <header class="d-flex justify-content-between align-items-start mb-4 gap-3">
+          <div class="forms-header">
+            <div class="page-header">
+              <div class="page-header-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h2 id="pageTitle" class="page-header-title">Forms</h2>
+                <div class="page-header-subtitle">Form components and layouts</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-2 align-items-center">
+            <select id="pairSelect" class="form-select form-select-sm bg-card text-light border-0">
+              <option>BTC / USD</option>
+              <option>ETH / USD</option>
+              <option>SOL / USD</option>
+              <option>ADA / USD</option>
+            </select>
+            <div class="badge bg-card text-success px-3 py-2">USD Balance: $12,450</div>
+            <button id="depositBtn" class="btn btn-success btn-sm">Deposit</button>
+            <button id="themeToggle" class="btn btn-outline-secondary btn-sm" title="Toggle Light/Dark Mode">
+              <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="sunIcon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="moonIcon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"/>
+              </svg>
+            </button>
+            <div class="dropdown">
+              <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Account
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="signin.html">Sign In</a></li>
+                <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Forms Content -->
+        <section id="forms" class="section active-section">
+          <div class="row g-4">
+            <!-- Basic Form Elements -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">📝 Basic Form Elements</h6>
+
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleName" class="form-label small text-muted">Full Name</label>
+                    <input type="text" class="form-control bg-card text-light border-secondary" id="exampleName" placeholder="Enter your full name">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleEmail" class="form-label small text-muted">Email Address</label>
+                    <input type="email" class="form-control bg-card text-light border-secondary" id="exampleEmail" placeholder="Enter your email">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="examplePassword" class="form-label small text-muted">Password</label>
+                    <input type="password" class="form-control bg-card text-light border-secondary" id="examplePassword" placeholder="Enter your password">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleSelect" class="form-label small text-muted">Trading Pair</label>
+                    <select class="form-select bg-card text-light border-secondary" id="exampleSelect">
+                      <option>BTC / USD</option>
+                      <option>ETH / USD</option>
+                      <option>SOL / USD</option>
+                      <option>ADA / USD</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label small text-muted">Order Type</label>
+                    <div class="row g-2">
+                      <div class="col-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="orderType" id="marketOrder" checked>
+                          <label class="form-check-label small" for="marketOrder">Market</label>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="orderType" id="limitOrder">
+                          <label class="form-check-label small" for="limitOrder">Limit</label>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="orderType" id="stopOrder">
+                          <label class="form-check-label small" for="stopOrder">Stop</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="termsCheck">
+                      <label class="form-check-label small" for="termsCheck">
+                        I agree to the <a href="#" class="text-success">Terms of Service</a>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Submit Form</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Trading Form -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">💹 Trading Order Form</h6>
+
+                <form>
+                  <div class="mb-3">
+                    <label class="form-label small text-muted">Order Side</label>
+                    <div class="btn-group w-100 mb-2" role="group">
+                      <input type="radio" class="btn-check" name="side" id="buySide" autocomplete="off" checked>
+                      <label class="btn btn-sm btn-outline-success" for="buySide">Buy</label>
+
+                      <input type="radio" class="btn-check" name="side" id="sellSide" autocomplete="off">
+                      <label class="btn btn-sm btn-outline-danger" for="sellSide">Sell</label>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="tradingPair" class="form-label small text-muted">Trading Pair</label>
+                    <select class="form-select bg-card text-light border-secondary" id="tradingPair">
+                      <option>BTC / USD</option>
+                      <option>ETH / USD</option>
+                      <option>SOL / USD</option>
+                      <option>ADA / USD</option>
+                    </select>
+                  </div>
+
+                  <div class="row g-3 mb-3">
+                    <div class="col-6">
+                      <label for="orderPrice" class="form-label small text-muted">Price (USD)</label>
+                      <input type="number" class="form-control bg-card text-light border-secondary" id="orderPrice" placeholder="0.00" step="0.01">
+                    </div>
+                    <div class="col-6">
+                      <label for="orderAmount" class="form-label small text-muted">Amount</label>
+                      <input type="number" class="form-control bg-card text-light border-secondary" id="orderAmount" placeholder="0.00000000" step="0.00000001">
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label small text-muted">Total (USD)</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-card text-muted border-secondary">$</span>
+                      <input type="text" class="form-control bg-card text-light border-secondary" id="totalAmount" value="0.00" readonly>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label small text-muted">Fee (0.1%)</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-card text-muted border-secondary">$</span>
+                      <input type="text" class="form-control bg-card text-light border-secondary" id="feeAmount" value="0.00" readonly>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success btn-lg">Place Order</button>
+                    <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Input Groups -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">🔗 Input Groups</h6>
+
+                <div class="mb-3">
+                  <label class="form-label small text-muted">Deposit Amount</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-card text-muted border-secondary">$</span>
+                    <input type="number" class="form-control bg-card text-light border-secondary" placeholder="0.00">
+                    <span class="input-group-text bg-card text-muted border-secondary">USD</span>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label small text-muted">Withdrawal Address</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-card text-light border-secondary" placeholder="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh">
+                    <button class="btn btn-outline-secondary" type="button">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label small text-muted">Search Assets</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-card text-light border-secondary" placeholder="Search cryptocurrencies...">
+                    <button class="btn btn-outline-primary" type="button">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label small text-muted">Amount with Buttons</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control bg-card text-light border-secondary" placeholder="0.00">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">BTC</button>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                      <li><a class="dropdown-item" href="#">BTC</a></li>
+                      <li><a class="dropdown-item" href="#">ETH</a></li>
+                      <li><a class="dropdown-item" href="#">USDT</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Validation -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">✅ Form Validation</h6>
+
+                <form class="needs-validation" novalidate>
+                  <div class="mb-3">
+                    <label for="validationName" class="form-label small text-muted">Full Name *</label>
+                    <input type="text" class="form-control bg-card text-light border-secondary is-valid" id="validationName" required>
+                    <div class="valid-feedback">Looks good!</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="validationEmail" class="form-label small text-muted">Email Address *</label>
+                    <input type="email" class="form-control bg-card text-light border-secondary is-invalid" id="validationEmail" required>
+                    <div class="invalid-feedback">Please provide a valid email address.</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="validationPassword" class="form-label small text-muted">Password *</label>
+                    <input type="password" class="form-control bg-card text-light border-secondary" id="validationPassword" required minlength="8">
+                    <div class="form-text text-muted small">Must be at least 8 characters long</div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="validationAge" class="form-label small text-muted">Age</label>
+                    <input type="number" class="form-control bg-card text-light border-secondary" id="validationAge" min="18" max="120">
+                    <div class="form-text text-muted small">You must be 18 or older to trade</div>
+                  </div>
+
+                  <div class="d-grid">
+                    <button class="btn btn-success" type="submit">Create Account</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
