@@ -216,6 +216,84 @@ class CryptoChartManager {
         }
     }
 
+    // Initialize portfolio pie chart
+    initPortfolioChart(containerId) {
+        if (document.getElementById(containerId)) {
+            const config = this.createPortfolioChartConfig();
+            this.charts[containerId] = Highcharts.chart(containerId, config);
+        }
+    }
+
+    // Create portfolio pie chart configuration
+    createPortfolioChartConfig() {
+        return {
+            chart: {
+                type: 'pie',
+                backgroundColor: 'transparent',
+                height: 250,
+                style: {
+                    fontFamily: 'inherit'
+                }
+            },
+            title: {
+                text: null
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: '#f9fafb',
+                            fontSize: '11px'
+                        }
+                    },
+                    showInLegend: true,
+                    borderWidth: 0,
+                    colors: ['#10b981', '#f59e0b', '#8b5cf6']
+                }
+            },
+            legend: {
+                itemStyle: {
+                    color: '#f9fafb'
+                },
+                itemHoverStyle: {
+                    color: '#10b981'
+                }
+            },
+            series: [{
+                name: 'Allocation',
+                colorByPoint: true,
+                data: [{
+                    name: 'USD',
+                    y: 68.2,
+                    color: '#10b981'
+                }, {
+                    name: 'Bitcoin',
+                    y: 24.1,
+                    color: '#f59e0b'
+                }, {
+                    name: 'Ethereum',
+                    y: 7.7,
+                    color: '#8b5cf6'
+                }]
+            }],
+            credits: {
+                enabled: false
+            },
+            tooltip: {
+                backgroundColor: '#1f2937',
+                borderColor: '#374151',
+                style: {
+                    color: '#f9fafb'
+                },
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b><br/>Value: <b>${point.y}</b>'
+            }
+        };
+    }
+
     // Update chart data (for real-time updates)
     updateChartData() {
         const newTimestamp = new Date().getTime();
@@ -265,6 +343,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize trading chart if priceChart exists (trading.html)
     if (document.getElementById('priceChart')) {
         chartManager.initTradingChart('priceChart');
+    }
+
+    // Initialize portfolio chart if it exists (wallet.html)
+    if (document.getElementById('portfolioChart')) {
+        chartManager.initPortfolioChart('portfolioChart');
     }
 
     // Update chart data every 5 seconds for demo purposes

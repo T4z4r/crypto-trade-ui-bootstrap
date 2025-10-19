@@ -319,6 +319,214 @@ body {
   color: #059669;
 }
 
+/* Wallet Page Professional Styling */
+.asset-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.asset-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.asset-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.asset-icon.usd-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.asset-icon.btc-icon {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.asset-icon.eth-icon {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+}
+
+.asset-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.asset-symbol {
+  font-size: 0.85rem;
+}
+
+.asset-balance {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.asset-change {
+  font-weight: 500;
+}
+
+/* Portfolio Chart Container */
+.portfolio-chart-container {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(98, 0, 255, 0.03));
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(98, 0, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Allocation Items */
+.allocation-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.allocation-item:last-child {
+  border-bottom: none;
+}
+
+.allocation-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.allocation-icon.usd-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.allocation-icon.btc-icon {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.allocation-icon.eth-icon {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+}
+
+/* Deposit Methods */
+.deposit-method {
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.deposit-method:hover {
+  background: rgba(16, 185, 129, 0.05) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+.method-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.method-icon.bank-icon {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.method-icon.card-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.method-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.method-desc {
+  font-size: 0.8rem;
+}
+
+/* Action Buttons */
+.action-buttons .btn {
+  transition: all 0.2s ease;
+}
+
+.action-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+/* Wallet specific animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+  }
+}
+
+.asset-card:hover .asset-icon {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Light mode wallet styling */
+.light-mode .asset-card {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .asset-card:hover {
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.light-mode .portfolio-chart-container {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(98, 0, 255, 0.02));
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .allocation-item {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .deposit-method {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .deposit-method:hover {
+  background: rgba(16, 185, 129, 0.05) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
 /* Chart.js specific styling */
 #priceChart {
   width: 100% !important;
