@@ -78,9 +78,35 @@
   background-color: var(--card) !important;
   color: var(--text) !important;
 }
+.light-mode .table-dark {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
 .light-mode .table-dark th,
 .light-mode .table-dark td,
 .light-mode .table-dark thead th {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  background-color: transparent !important;
+  color: var(--text) !important;
+}
+.light-mode .table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--card-darker) !important;
+}
+.light-mode .table-striped tbody tr:nth-of-type(even) {
+  background-color: var(--card) !important;
+}
+.light-mode .table thead th {
+  background-color: var(--card-darker) !important;
+  color: var(--text) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+.light-mode .table-hover tbody tr:hover {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: var(--text) !important;
+}
+.light-mode .table tbody td {
+  color: var(--text) !important;
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
 .light-mode .badge.bg-card {
@@ -116,6 +142,61 @@
 }
 .light-mode .text-secondary {
   color: var(--muted) !important;
+}
+.light-mode .bg-darker {
+  background: var(--card-darker) !important;
+}
+.light-mode .form-control.bg-darker {
+  background: var(--card-darker) !important;
+  color: var(--text) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+.light-mode .form-control.bg-darker:focus {
+  background: var(--card-darker) !important;
+  border-color: var(--accent) !important;
+  color: var(--text) !important;
+}
+.light-mode .modal-content.bg-card {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+.light-mode .dropdown-menu-dark {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+}
+.light-mode .dropdown-menu-dark .dropdown-item {
+  color: var(--text) !important;
+}
+.light-mode .dropdown-menu-dark .dropdown-item:hover {
+  background-color: var(--card-darker) !important;
+  color: var(--text) !important;
+}
+.profile-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.profile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+}
+.profile-icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+}
+.light-mode .card-dark {
+  background: var(--card) !important;
+  color: var(--text) !important;
+}
+.light-mode .bg-card {
+  background: var(--card) !important;
+}
+.light-mode *[style*="background"] {
+  background: var(--card) !important;
+}
+.light-mode *[style*="linear-gradient"] {
+  background: var(--card) !important;
+}
+.light-mode #sidebarNav {
+  background: var(--card) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
 }
 body {
   background: var(--bg-app);
