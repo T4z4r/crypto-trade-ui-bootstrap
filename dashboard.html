@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cryptix — Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-app text-light">
+  <div class="container-fluid">
+    <div class="row gx-0">
+      <!-- Sidebar -->
+      <aside class="col-12 col-md-2 sidebar p-4 vh-100 d-flex flex-column">
+        <div class="mb-4">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <!-- Crypto/Brand icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-icon">
+              <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <h3 class="brand mb-0">Cryptix</h3>
+          </div>
+          <div class="text-muted small">v0.1</div>
+        </div>
+
+        <nav class="nav nav-pills flex-column mb-3" id="sidebarNav"
+          style="background: linear-gradient(135deg, rgba(0,255,196,0.06), rgba(98,0,255,0.04));
+              padding: .5rem;
+              border-radius: .75rem;
+              box-shadow: 0 8px 30px rgba(98,0,255,0.06), inset 0 0 40px rgba(0,255,196,0.02);">
+          <a href="dashboard.html" class="nav-link active">
+            <!-- Home / Dashboard icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+           <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           <path d="M5 21h14a1 1 0 0 0 1-1V11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           <path d="M9 21V13h6v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="trading.html" class="nav-link">
+            <!-- Chart icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+           <path d="M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           <path d="M6 14l4-6 4 8 4-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Trading</span>
+          </a>
+
+          <a href="wallet.html" class="nav-link">
+            <!-- Wallet icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+           <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="1.6" />
+           <path d="M16 10h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+           <path d="M2 10h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span>Wallet</span>
+          </a>
+
+          <a href="transactions.html" class="nav-link">
+            <!-- Transactions / List icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+           <path d="M8 6h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+           <path d="M8 12h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+           <path d="M8 18h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+           <path d="M3 6h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+           <path d="M3 12h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+           <path d="M3 18h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <span>Transactions</span>
+          </a>
+
+          <a href="profile.html" class="nav-link">
+            <!-- User / Profile icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Profile</span>
+          </a>
+        </nav>
+
+        <div class="mt-auto small text-secondary">© 2025 Cryptix</div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="col-12 col-md-10 p-4">
+        <header class="d-flex justify-content-between align-items-start mb-4 gap-3">
+          <div>
+            <h2 id="pageTitle">Dashboard</h2>
+            <div class="small text-muted">Real-time price, orderbook & chart</div>
+          </div>
+
+          <div class="d-flex gap-2 align-items-center">
+            <select id="pairSelect" class="form-select form-select-sm bg-card text-light border-0">
+              <option>BTC / USD</option>
+              <option>ETH / USD</option>
+              <option>SOL / USD</option>
+              <option>ADA / USD</option>
+            </select>
+            <div class="badge bg-card text-success px-3 py-2">USD Balance: $12,450</div>
+            <button id="depositBtn" class="btn btn-success btn-sm">Deposit</button>
+            <button id="themeToggle" class="btn btn-outline-secondary btn-sm" title="Toggle Light/Dark Mode">
+              <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="sunIcon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="moonIcon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"/>
+              </svg>
+            </button>
+            <div class="dropdown">
+              <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Account
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#authModal">Sign In</a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#authModal">Sign Up</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <section id="dashboard" class="section active-section">
+          <div class="row g-3 mb-3">
+            <div class="col-lg-4">
+              <div class="card card-dark p-3 h-100">
+                <div class="muted small">Portfolio Value</div>
+                <h4 class="mt-2">$24,760</h4>
+                <div class="text-success small mt-1">+4.8% (24h)</div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-dark p-3 h-100">
+                <div class="muted small">24h Volume</div>
+                <h4 class="mt-2">$1,240,000</h4>
+                <div class="muted small mt-1">Top pair: BTC/USD</div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-dark p-3 h-100">
+                <div class="muted small">Open Orders</div>
+                <h4 class="mt-2">2</h4>
+                <div class="muted small mt-1">3 limit orders</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-lg-8">
+              <div class="card card-dark p-3">
+                <h5>Market Overview</h5>
+                <div id="chartArea" class="chart-area rounded mt-3">Candlestick chart placeholder</div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-dark p-3 mb-3">
+                <h6>Top Movers</h6>
+                <ul class="list-unstyled mt-2 small movers">
+                  <li class="d-flex justify-content-between"><span>BTC</span><span class="text-success">+3.1%</span></li>
+                  <li class="d-flex justify-content-between"><span>ETH</span><span class="text-success">+5.4%</span></li>
+                  <li class="d-flex justify-content-between"><span>SOL</span><span class="text-danger">-2.0%</span></li>
+                </ul>
+                <button id="goTrading" class="btn btn-success btn-sm w-100 mt-3">Go to Trading</button>
+              </div>
+
+              <div class="card card-dark p-3">
+                <h6>Recent Trades</h6>
+                <div id="recentTrades" class="small mt-2">No recent trades (mock)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
