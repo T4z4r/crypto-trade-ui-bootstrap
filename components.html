@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cryptix — Components</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-app text-light">
+  <!-- Page Loader -->
+  <div id="pageLoader" class="page-loader">
+    <div class="loader-container">
+      <div class="loader-content">
+        <!-- Brand Logo -->
+        <div class="loader-brand">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="loader-brand-icon">
+            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <h2 class="loader-brand-text">Cryptix</h2>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="loader-animation">
+          <div class="loader-spinner"></div>
+          <div class="loader-bars">
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+          </div>
+        </div>
+
+        <!-- Loading Text -->
+        <div class="loader-text">
+          <span class="loader-status">Loading</span>
+          <div class="loader-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="loader-progress">
+          <div class="loader-progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row gx-0">
+      <!-- Sidebar -->
+      <aside class="col-12 col-md-2 sidebar p-4 vh-100 d-flex flex-column">
+        <div class="mb-4">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <!-- Crypto/Brand icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-icon">
+              <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <h3 class="brand mb-0">Cryptix</h3>
+          </div>
+          <div class="text-muted small">v0.1</div>
+        </div>
+
+        <nav id="sidebarNav"
+          style="background: linear-gradient(135deg, rgba(0,255,196,0.06), rgba(98,0,255,0.04));
+              padding: .5rem;
+              border-radius: .75rem;
+              box-shadow: 0 8px 30px rgba(98,0,255,0.06), inset 0 0 40px rgba(0,255,196,0.02);">
+          <ul class="nav-list mb-3">
+            <li>
+              <a href="dashboard.html" class="nav-item">
+                <!-- Home / Dashboard icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M5 21h14a1 1 0 0 0 1-1V11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M9 21V13h6v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="trading.html" class="nav-item">
+                <!-- Chart icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M6 14l4-6 4 8 4-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Trading</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="wallet.html" class="nav-item">
+                <!-- Wallet icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="1.6" />
+               <path d="M16 10h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+               <path d="M2 10h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span>Wallet</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="transactions.html" class="nav-item">
+                <!-- Transactions / List icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M8 6h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+               <path d="M8 12h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+               <path d="M8 18h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+               <path d="M3 6h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+               <path d="M3 12h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+               <path d="M3 18h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span>Transactions</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="profile.html" class="nav-item">
+                <!-- User / Profile icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+               <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Profile</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="icons.html" class="nav-item">
+                <!-- Icons icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <span>Icons</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="forms.html" class="nav-item">
+                <!-- Forms icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Forms</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="tables.html" class="nav-item">
+                <!-- Tables icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <path d="M3 6h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M11 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M19 6v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 10h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 14h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Tables</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="components.html" class="nav-item active">
+                <!-- Components icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+                <span>Components</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="widgets.html" class="nav-item">
+                <!-- Widgets icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                  <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.6"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6" fill="none"/>
+                </svg>
+                <span>Widgets</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="mt-auto small text-secondary">© 2025 Cryptix</div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="col-12 col-md-10 p-4">
+        <header class="d-flex justify-content-between align-items-start mb-4 gap-3">
+          <div class="components-header">
+            <div class="page-header">
+              <div class="page-header-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                  <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                  <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                  <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <div>
+                <h2 id="pageTitle" class="page-header-title">Components</h2>
+                <div class="page-header-subtitle">UI components and elements</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-2 align-items-center">
+            <select id="pairSelect" class="form-select form-select-sm bg-card text-light border-0">
+              <option>BTC / USD</option>
+              <option>ETH / USD</option>
+              <option>SOL / USD</option>
+              <option>ADA / USD</option>
+            </select>
+            <div class="badge bg-card text-success px-3 py-2">USD Balance: $12,450</div>
+            <button id="depositBtn" class="btn btn-success btn-sm">Deposit</button>
+            <button id="themeToggle" class="btn btn-outline-secondary btn-sm" title="Toggle Light/Dark Mode">
+              <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="sunIcon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="moonIcon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"/>
+              </svg>
+            </button>
+            <div class="dropdown">
+              <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Account
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="signin.html">Sign In</a></li>
+                <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Components Content -->
+        <section id="components" class="section active-section">
+          <div class="row g-4">
+            <!-- Buttons -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">🔘 Buttons</h6>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Primary Buttons</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button class="btn btn-primary btn-sm">Small</button>
+                    <button class="btn btn-primary">Default</button>
+                    <button class="btn btn-primary btn-lg">Large</button>
+                    <button class="btn btn-primary" disabled>Disabled</button>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Secondary Buttons</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button class="btn btn-secondary btn-sm">Small</button>
+                    <button class="btn btn-secondary">Default</button>
+                    <button class="btn btn-secondary btn-lg">Large</button>
+                    <button class="btn btn-outline-secondary">Outline</button>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Trading Buttons</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button class="btn btn-success btn-sm">Buy BTC</button>
+                    <button class="btn btn-danger btn-sm">Sell BTC</button>
+                    <button class="btn btn-warning btn-sm">Limit Order</button>
+                    <button class="btn btn-info btn-sm">Market Order</button>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Icon Buttons</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button class="btn btn-outline-primary btn-sm">
+                      <svg width="16" height="16" class="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/>
+                        <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                      Download
+                    </button>
+                    <button class="btn btn-outline-success btn-sm">
+                      <svg width="16" height="16" class="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                      Confirm
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm">
+                      <svg width="16" height="16" class="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+                        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badges -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">🏷️ Badges</h6>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Status Badges</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge bg-success">Active</span>
+                    <span class="badge bg-warning">Pending</span>
+                    <span class="badge bg-danger">Error</span>
+                    <span class="badge bg-info">Info</span>
+                    <span class="badge bg-secondary">Default</span>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Trading Badges</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge bg-success">Buy Order</span>
+                    <span class="badge bg-danger">Sell Order</span>
+                    <span class="badge bg-warning">Limit</span>
+                    <span class="badge bg-info">Market</span>
+                    <span class="badge bg-primary">Stop Loss</span>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Cryptocurrency Badges</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <span class="badge bg-warning text-dark">BTC</span>
+                    <span class="badge bg-info">ETH</span>
+                    <span class="badge bg-success">SOL</span>
+                    <span class="badge bg-primary">ADA</span>
+                    <span class="badge bg-secondary">DOT</span>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Balance Badges</h6>
+                  <div class="d-flex gap-2 flex-wrap align-items-center">
+                    <span class="badge bg-card text-success px-3 py-2">USD Balance: $12,450</span>
+                    <span class="badge bg-card text-warning px-3 py-2">BTC: 0.3234</span>
+                    <span class="badge bg-card text-info px-3 py-2">ETH: 4.125</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alerts -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">⚠️ Alerts</h6>
+
+                <div class="mb-4">
+                  <div class="alert alert-success border-0" role="alert">
+                    <div class="d-flex align-items-center">
+                      <svg width="20" height="20" class="me-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                      <div>
+                        <strong>Success!</strong> Your order has been executed successfully.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="alert alert-warning border-0" role="alert">
+                    <div class="d-flex align-items-center">
+                      <svg width="20" height="20" class="me-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                      <div>
+                        <strong>Warning!</strong> High volatility detected in BTC/USD pair.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="alert alert-danger border-0" role="alert">
+                    <div class="d-flex align-items-center">
+                      <svg width="20" height="20" class="me-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                        <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                      <div>
+                        <strong>Error!</strong> Insufficient balance for this transaction.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="alert alert-info border-0" role="alert">
+                    <div class="d-flex align-items-center">
+                      <svg width="20" height="20" class="me-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                      <div>
+                        <strong>Info:</strong> Market data updates every 5 seconds.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progress Bars -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">📊 Progress Bars</h6>
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Portfolio Allocation</span>
+                    <span class="small fw-semibold">75%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Staking Progress</span>
+                    <span class="small fw-semibold">45%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 45%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Verification Status</span>
+                    <span class="small fw-semibold">90%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 90%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="small text-muted">Trading Volume</span>
+                    <span class="small fw-semibold">60%</span>
+                  </div>
+                  <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 60%"></div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="small text-muted mb-3">Circular Progress</h6>
+                  <div class="d-flex gap-4 align-items-center">
+                    <div class="text-center">
+                      <div style="width: 60px; height: 60px; border-radius: 50%; background: conic-gradient(#10b981 0deg, #10b981 75%, #374151 75%, #374151 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <span class="text-white small fw-bold">75%</span>
+                      </div>
+                      <span class="small text-muted">Success Rate</span>
+                    </div>
+                    <div class="text-center">
+                      <div style="width: 60px; height: 60px; border-radius: 50%; background: conic-gradient(#f59e0b 0deg, #f59e0b 45%, #374151 45%, #374151 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <span class="text-white small fw-bold">45%</span>
+                      </div>
+                      <span class="small text-muted">Completion</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">🃏 Cards</h6>
+
+                <div class="row g-3">
+                  <div class="col-6">
+                    <div class="card card-dark border-secondary p-3">
+                      <div class="d-flex align-items-center gap-2 mb-2">
+                        <div class="bg-success rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="white" stroke-width="2"/>
+                          </svg>
+                        </div>
+                        <div class="text-muted small">Portfolio Value</div>
+                      </div>
+                      <h5 class="mb-1">$24,760</h5>
+                      <div class="text-success small">+4.8% (24h)</div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="card card-dark border-secondary p-3">
+                      <div class="d-flex align-items-center gap-2 mb-2">
+                        <div class="bg-info rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 21V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z" stroke="white" stroke-width="2"/>
+                          </svg>
+                        </div>
+                        <div class="text-muted small">24h Volume</div>
+                      </div>
+                      <h5 class="mb-1">$1,240,000</h5>
+                      <div class="text-muted small">Top pair: BTC/USD</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tooltips & Popovers -->
+            <div class="col-lg-6">
+              <div class="card card-dark p-4">
+                <h6 class="mb-4">💬 Tooltips & Popovers</h6>
+
+                <div class="d-flex gap-3 flex-wrap">
+                  <button class="btn btn-outline-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="This is a tooltip with helpful information">
+                    Hover for Tooltip
+                  </button>
+
+                  <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="popover" data-bs-placement="right"
+                          data-bs-content="This popover contains more detailed information about the trading pair and its performance metrics."
+                          title="BTC/USD Details">
+                    Popover
+                  </button>
+
+                  <div class="dropdown">
+                    <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                      Dropdown
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" href="#">View Details</a></li>
+                      <li><a class="dropdown-item" href="#">Edit Settings</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Export Data</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <h6 class="small text-muted mb-3">Interactive Elements</h6>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                      <label class="form-check-label small" for="notificationsSwitch">Notifications</label>
+                    </div>
+
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="autoTradeSwitch">
+                      <label class="form-check-label small" for="autoTradeSwitch">Auto Trading</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Initialize tooltips and popovers
+    document.addEventListener('DOMContentLoaded', function() {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+      var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+      });
+    });
+  </script>
+</body>
+</html>
