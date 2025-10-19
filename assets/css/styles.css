@@ -22,3 +22,17 @@ body{background:var(--bg-app);color:var(--text);font-family:Inter,system-ui,-app
 .nav-link:hover{background:rgba(16,185,129,0.08)!important; box-shadow:0 4px 12px rgba(16,185,129,0.06)!important;color:#d1fae5!important;text-shadow:0 0 6px rgba(16,185,129,0.12)!important}
 .nav-link.active{background:rgba(16,185,129,0.12)!important;box-shadow:0 6px 18px rgba(16,185,129,0.08)!important;color:#d1fae5!important;text-shadow:0 0 8px rgba(16,185,129,0.16)!important;border:2px solid rgba(16,185,129,0.2)!important}
 
+/* Authentication Modal Styles */
+.modal-content.bg-card{background:var(--card)!important;border:1px solid rgba(255,255,255,0.05)!important}
+.bg-darker{background:var(--card-darker)!important;border:1px solid rgba(255,255,255,0.03)!important}
+.form-control.bg-darker{background:var(--card-darker)!important;border:1px solid rgba(255,255,255,0.05)!important;color:var(--text)!important}
+.form-control.bg-darker:focus{background:var(--card-darker)!important;border-color:var(--accent)!important;box-shadow:0 0 0 0.2rem rgba(16,185,129,0.25)!important;color:var(--text)!important}
+.form-control.bg-darker::placeholder{color:var(--muted)!important;opacity:0.7!important}
+.form-check-input:checked{background-color:var(--accent)!important;border-color:var(--accent)!important}
+.btn-close-white{filter:invert(1)!important}
+#authModal .modal-title{color:var(--text)!important;font-weight:600}
+#authModal .text-muted{color:var(--muted)!important}
+#authModal .form-label{color:var(--text)!important;font-weight:500}
+#authModal .form-check-label{color:var(--muted)!important}
+#authModal .small{color:var(--muted)!important}
+

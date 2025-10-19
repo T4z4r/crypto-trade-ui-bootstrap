@@ -139,6 +139,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // authentication modal toggle
+  const showSignup = document.getElementById('showSignup');
+  const showSignin = document.getElementById('showSignin');
+  const signinForm = document.getElementById('signinForm');
+  const signupForm = document.getElementById('signupForm');
+  const signinText = document.getElementById('signinText');
+  const signupText = document.getElementById('signupText');
+
+  if (showSignup) {
+    showSignup.addEventListener('click', (e) => {
+      e.preventDefault();
+      signinForm.classList.add('d-none');
+      signupForm.classList.remove('d-none');
+      signinText.classList.add('d-none');
+      signupText.classList.remove('d-none');
+    });
+  }
+
+  if (showSignin) {
+    showSignin.addEventListener('click', (e) => {
+      e.preventDefault();
+      signupForm.classList.add('d-none');
+      signinForm.classList.remove('d-none');
+      signupText.classList.add('d-none');
+      signinText.classList.remove('d-none');
+    });
+  }
+
   // initial setup
   showSection('dashboard');
   updateEstimated();
