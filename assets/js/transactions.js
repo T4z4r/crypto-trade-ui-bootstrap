@@ -24,25 +24,7 @@ class TransactionManager {
       { id: 'TXN-202501140742', type: 'trade', currency: 'BTC', amount: 0.025, usdValue: 1456.78, status: 'completed', date: '2025-01-14T07:42:33Z' },
       { id: 'TXN-202501130945', type: 'fee', currency: 'ETH', amount: 0.002, usdValue: 6.84, status: 'completed', date: '2025-01-13T09:45:18Z' },
       { id: 'TXN-202501130823', type: 'staking', currency: 'SOL', amount: 15.5, usdValue: 1519.00, status: 'completed', date: '2025-01-13T08:23:47Z' },
-      { id: 'TXN-202501120956', type: 'trade', currency: 'ETH', amount: 0.5, usdValue: 1710.00, status: 'completed', date: '2025-01-12T09:56:22Z' },
-      { id: 'TXN-202501120845', type: 'deposit', currency: 'USDT', amount: 1000, usdValue: 1000, status: 'completed', date: '2025-01-12T08:45:11Z' },
-      { id: 'TXN-202501110732', type: 'withdrawal', currency: 'ADA', amount: 500, usdValue: 225.00, status: 'failed', date: '2025-01-11T07:32:55Z' },
-      { id: 'TXN-202501110658', type: 'airdrop', currency: 'DOT', amount: 10, usdValue: 85.00, status: 'completed', date: '2025-01-11T06:58:14Z' },
-      { id: 'TXN-202501100924', type: 'trade', currency: 'SOL', amount: 8.5, usdValue: 833.00, status: 'completed', date: '2025-01-10T09:24:37Z' },
-      { id: 'TXN-202501100812', type: 'fee', currency: 'BTC', amount: 0.0001, usdValue: 5.83, status: 'completed', date: '2025-01-10T08:12:45Z' },
-      { id: 'TXN-202501090745', type: 'staking', currency: 'ETH', amount: 2.5, usdValue: 8550.00, status: 'completed', date: '2025-01-09T07:45:29Z' },
-      { id: 'TXN-202501090634', type: 'deposit', currency: 'BTC', amount: 0.05, usdValue: 2917.25, status: 'completed', date: '2025-01-09T06:34:18Z' },
-      { id: 'TXN-202501080923', type: 'trade', currency: 'ADA', amount: 1000, usdValue: 450.00, status: 'completed', date: '2025-01-08T09:23:56Z' },
-      { id: 'TXN-202501080812', type: 'withdrawal', currency: 'USDT', amount: 500, usdValue: 500, status: 'pending', date: '2025-01-08T08:12:33Z' },
-      { id: 'TXN-202501070656', type: 'fee', currency: 'SOL', amount: 0.01, usdValue: 0.98, status: 'completed', date: '2025-01-07T06:56:41Z' },
-      { id: 'TXN-202501070545', type: 'trade', currency: 'BTC', amount: 0.015, usdValue: 874.28, status: 'completed', date: '2025-01-07T05:45:12Z' },
-      { id: 'TXN-202501060934', type: 'staking', currency: 'ADA', amount: 2500, usdValue: 1125.00, status: 'completed', date: '2025-01-06T09:34:27Z' },
-      { id: 'TXN-202501060823', type: 'deposit', currency: 'ETH', amount: 1.0, usdValue: 3420.00, status: 'completed', date: '2025-01-06T08:23:15Z' },
-      { id: 'TXN-202501050712', type: 'airdrop', currency: 'SOL', amount: 5, usdValue: 490.00, status: 'completed', date: '2025-01-05T07:12:38Z' },
-      { id: 'TXN-202501050601', type: 'trade', currency: 'ETH', amount: 0.75, usdValue: 2565.00, status: 'completed', date: '2025-01-05T06:01:52Z' },
-      { id: 'TXN-202501040945', type: 'withdrawal', currency: 'BTC', amount: 0.02, usdValue: 1166.90, status: 'completed', date: '2025-01-04T09:45:26Z' },
-      { id: 'TXN-202501040834', type: 'fee', currency: 'ETH', amount: 0.0015, usdValue: 5.13, status: 'completed', date: '2025-01-04T08:34:19Z' },
-      { id: 'TXN-202501030723', type: 'staking', currency: 'DOT', amount: 100, usdValue: 850.00, status: 'completed', date: '2025-01-03T07:23:44Z' },
+   
       { id: 'TXN-202501030612', type: 'deposit', currency: 'USD', amount: 2500, usdValue: 2500, status: 'completed', date: '2025-01-03T06:12:37Z' }
     ];
 

@@ -56,6 +56,8 @@ body {
 .light-mode .sidebar {
   background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  min-height: 100vh;
 }
 .light-mode .card {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
@@ -242,10 +244,26 @@ body {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
   margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Ensure container-fluid takes full height */
+.container-fluid {
+  height: 100vh;
+  padding: 0;
+}
+
+/* Ensure row takes full height for sidebar layout */
+.row.gx-0 {
+  height: 100vh;
+  margin: 0;
 }
 .sidebar {
   background: linear-gradient(180deg, #071018 0%, #0b1116 100%);
   border-right: 1px solid rgba(255, 255, 255, 0.03);
+  height: 100vh;
+  min-height: 100vh;
 }
 .brand {
   color: var(--accent);
