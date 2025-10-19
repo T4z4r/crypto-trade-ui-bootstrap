@@ -227,77 +227,146 @@
 
         <!-- Icons Content -->
         <section id="icons" class="section active-section">
+          <!-- Search and Filter -->
+          <div class="card card-dark p-4 mb-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-lg-6">
+                <div class="d-flex align-items-center gap-2">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <input type="text" id="iconSearch" class="form-control bg-card text-light border-secondary" placeholder="Search icons..." style="flex: 1;">
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <select id="categoryFilter" class="form-select bg-card text-light border-secondary">
+                  <option value="">All Categories</option>
+                  <option value="navigation">🧭 Navigation</option>
+                  <option value="trading">📈 Trading</option>
+                  <option value="financial">💰 Financial</option>
+                  <option value="status">📊 Status</option>
+                  <option value="chart">📈 Charts</option>
+                  <option value="action">⚡ Actions</option>
+                  <option value="security">🔐 Security</option>
+                  <option value="time">⏰ Time</option>
+                </select>
+              </div>
+              <div class="col-lg-3">
+                <div class="d-flex gap-2">
+                  <button id="copyAllBtn" class="btn btn-outline-primary btn-sm">
+                    <svg width="16" height="16" class="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Copy All
+                  </button>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                      View
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" href="#" onclick="toggleIconView('grid')">Grid View</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="toggleIconView('list')">List View</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Icon Categories -->
-          <div class="row g-4">
+          <div id="iconCategories" class="row g-4">
             <!-- Navigation Icons -->
-            <div class="col-lg-6">
-              <div class="card card-dark p-4 h-100">
-                <h6 class="mb-4">🧭 Navigation Icons</h6>
+            <div class="col-lg-6" data-category="navigation">
+              <div class="card card-dark p-4 h-100 icon-category-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h6 class="mb-0">🧭 Navigation Icons</h6>
+                  <span class="badge bg-primary">6</span>
+                </div>
                 <div class="row g-3">
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M5 21h14a1 1 0 0 0 1-1V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9 21V13h6v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('dashboard')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M5 21h14a1 1 0 0 0 1-1V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M9 21V13h6v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Dashboard</span>
+                      <small class="text-muted">dashboard-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M6 14l4-6 4 8 4-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('trading')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M6 14l4-6 4 8 4-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Trading</span>
+                      <small class="text-muted">trading-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
-                        <path d="M16 10h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M2 10h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('wallet')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                          <path d="M16 10h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M2 10h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Wallet</span>
+                      <small class="text-muted">wallet-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 6h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M8 12h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M8 18h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M3 6h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M3 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('transactions')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8 6h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M8 12h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M8 18h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M3 6h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M3 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Transactions</span>
+                      <small class="text-muted">transactions-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('profile')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Profile</span>
+                      <small class="text-muted">profile-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M7 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M11 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M15 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M19 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 14h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('tables')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M7 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M11 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M15 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M19 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M3 14h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Tables</span>
+                      <small class="text-muted">tables-icon</small>
                     </div>
                   </div>
                 </div>
@@ -305,62 +374,83 @@
             </div>
 
             <!-- Trading Icons -->
-            <div class="col-lg-6">
-              <div class="card card-dark p-4 h-100">
-                <h6 class="mb-4">📈 Trading Icons</h6>
+            <div class="col-lg-6" data-category="trading">
+              <div class="card card-dark p-4 h-100 icon-category-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h6 class="mb-0">📈 Trading Icons</h6>
+                  <span class="badge bg-success">6</span>
+                </div>
                 <div class="row g-3">
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 16l-4-4m0 0l4-4m-4 4h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('sell')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 16l-4-4m0 0l4-4m-4 4h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Sell</span>
+                      <small class="text-muted">sell-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('buy')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Buy</span>
+                      <small class="text-muted">buy-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
-                        <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
-                        <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('limit-order')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                          <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                          <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                          <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Limit Order</span>
+                      <small class="text-muted">limit-order-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" stroke-width="2"/>
-                        <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" stroke-width="2"/>
-                        <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('market-order')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" stroke-width="2"/>
+                          <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" stroke-width="2"/>
+                          <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Market Order</span>
+                      <small class="text-muted">market-order-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('stop-loss')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Stop Loss</span>
+                      <small class="text-muted">stop-loss-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
-                        <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('order-book')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+                          <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Order Book</span>
+                      <small class="text-muted">order-book-icon</small>
                     </div>
                   </div>
                 </div>
@@ -368,63 +458,84 @@
             </div>
 
             <!-- Financial Icons -->
-            <div class="col-lg-6">
-              <div class="card card-dark p-4 h-100">
-                <h6 class="mb-4">💰 Financial Icons</h6>
+            <div class="col-lg-6" data-category="financial">
+              <div class="card card-dark p-4 h-100 icon-category-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h6 class="mb-0">💰 Financial Icons</h6>
+                  <span class="badge bg-warning">6</span>
+                </div>
                 <div class="row g-3">
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('crypto')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2"/>
+                          <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        </svg>
+                      </div>
                       <span class="small">Crypto</span>
+                      <small class="text-muted">crypto-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('dollar')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+                          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Dollar</span>
+                      <small class="text-muted">dollar-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" stroke-width="2"/>
-                        <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" stroke-width="2"/>
-                        <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('deposit')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" stroke-width="2"/>
+                          <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" stroke-width="2"/>
+                          <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Deposit</span>
+                      <small class="text-muted">deposit-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                        <path d="M20 8v6M23 11l-3 3-3-3" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('withdraw')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                          <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                          <path d="M20 8v6M23 11l-3 3-3-3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Withdraw</span>
+                      <small class="text-muted">withdraw-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('fee')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Fee</span>
+                      <small class="text-muted">fee-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('staking')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2"/>
+                          <path d="M12 2L20 9L12 16L4 9L12 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        </svg>
+                      </div>
                       <span class="small">Staking</span>
+                      <small class="text-muted">staking-icon</small>
                     </div>
                   </div>
                 </div>
@@ -432,63 +543,84 @@
             </div>
 
             <!-- Status Icons -->
-            <div class="col-lg-6">
-              <div class="card card-dark p-4 h-100">
-                <h6 class="mb-4">📊 Status Icons</h6>
+            <div class="col-lg-6" data-category="status">
+              <div class="card card-dark p-4 h-100 icon-category-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h6 class="mb-0">📊 Status Icons</h6>
+                  <span class="badge bg-info">6</span>
+                </div>
                 <div class="row g-3">
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('success')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
                       <span class="small">Success</span>
+                      <small class="text-muted">success-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
-                        <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('error')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                          <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                          <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Error</span>
+                      <small class="text-muted">error-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
-                        <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('warning')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                          <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"/>
+                          <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Warning</span>
+                      <small class="text-muted">warning-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('pending')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                          <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Pending</span>
+                      <small class="text-muted">pending-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('info')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2"/>
+                          <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Info</span>
+                      <small class="text-muted">info-icon</small>
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="icon-item text-center">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke="currentColor" stroke-width="2"/>
-                      </svg>
+                    <div class="icon-item text-center" onclick="copyIconCode('alert')">
+                      <div class="icon-container">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      </div>
                       <span class="small">Alert</span>
+                      <small class="text-muted">alert-icon</small>
                     </div>
                   </div>
                 </div>
@@ -858,5 +990,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/icons.js"></script>
 </body>
 </html>
