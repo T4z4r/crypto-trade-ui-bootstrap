@@ -246,7 +246,7 @@ body {
   color: var(--muted);
 }
 .chart-area {
-  height: 260px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,6 +279,152 @@ body {
 #priceChart {
   width: 100% !important;
   height: 100% !important;
+}
+
+/* Highcharts specific styling for dark theme */
+.highcharts-container {
+  font-family: inherit !important;
+}
+
+.highcharts-background {
+  fill: transparent !important;
+}
+
+.highcharts-plot-background {
+  fill: transparent !important;
+}
+
+.highcharts-grid-line {
+  stroke: #374151 !important;
+  stroke-width: 1 !important;
+}
+
+.highcharts-axis-line {
+  stroke: #374151 !important;
+}
+
+.highcharts-tick {
+  stroke: #374151 !important;
+}
+
+.highcharts-axis-labels text {
+  fill: #9ca3af !important;
+  font-size: 11px !important;
+}
+
+.highcharts-title {
+  fill: #f9fafb !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.highcharts-subtitle {
+  fill: #9ca3af !important;
+}
+
+.highcharts-legend-item text {
+  fill: #f9fafb !important;
+}
+
+.highcharts-tooltip-box {
+  fill: #1f2937 !important;
+  stroke: #374151 !important;
+  stroke-width: 1 !important;
+}
+
+.highcharts-tooltip text {
+  fill: #f9fafb !important;
+}
+
+.highcharts-button {
+  fill: #374151 !important;
+  stroke: #4b5563 !important;
+}
+
+.highcharts-button text {
+  fill: #f9fafb !important;
+}
+
+.highcharts-range-selector-button {
+  fill: #374151 !important;
+}
+
+.highcharts-range-selector-button text {
+  fill: #f9fafb !important;
+}
+
+/* Candlestick specific styling */
+.highcharts-candlestick-series .highcharts-point-up {
+  fill: #10b981 !important;
+  stroke: #10b981 !important;
+}
+
+.highcharts-candlestick-series .highcharts-point-down {
+  fill: #ef4444 !important;
+  stroke: #ef4444 !important;
+}
+
+/* Light mode Highcharts styling */
+.light-mode .highcharts-background {
+  fill: #ffffff !important;
+}
+
+.light-mode .highcharts-plot-background {
+  fill: #ffffff !important;
+}
+
+.light-mode .highcharts-grid-line {
+  stroke: #e5e7eb !important;
+}
+
+.light-mode .highcharts-axis-line {
+  stroke: #d1d5db !important;
+}
+
+.light-mode .highcharts-tick {
+  stroke: #d1d5db !important;
+}
+
+.light-mode .highcharts-axis-labels text {
+  fill: #374151 !important;
+}
+
+.light-mode .highcharts-title {
+  fill: #111827 !important;
+}
+
+.light-mode .highcharts-subtitle {
+  fill: #6b7280 !important;
+}
+
+.light-mode .highcharts-legend-item text {
+  fill: #111827 !important;
+}
+
+.light-mode .highcharts-tooltip-box {
+  fill: #f9fafb !important;
+  stroke: #d1d5db !important;
+}
+
+.light-mode .highcharts-tooltip text {
+  fill: #111827 !important;
+}
+
+.light-mode .highcharts-button {
+  fill: #f3f4f6 !important;
+  stroke: #d1d5db !important;
+}
+
+.light-mode .highcharts-button text {
+  fill: #111827 !important;
+}
+
+.light-mode .highcharts-range-selector-button {
+  fill: #f3f4f6 !important;
+}
+
+.light-mode .highcharts-range-selector-button text {
+  fill: #111827 !important;
 }
 
 /* Light mode chart styling */
