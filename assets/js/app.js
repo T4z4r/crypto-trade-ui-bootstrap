@@ -3,6 +3,23 @@
 window.appInitialized = false;
 
 // ========================================
+// IMMEDIATE THEME INITIALIZATION
+// ========================================
+
+// Apply theme immediately to prevent flash
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.documentElement.classList.add('light-mode');
+    // Set data attribute for additional CSS-based theme control
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.classList.remove('light-mode');
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+
+// ========================================
 // PAGE LOADER FUNCTIONALITY
 // ========================================
 
@@ -188,15 +205,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Theme toggle functionality (works on all pages)
   function initializeTheme() {
+    // Theme class is already applied immediately above, just update icons and data attribute
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
-      document.body.classList.add('light-mode');
+      document.documentElement.setAttribute('data-theme', 'light');
       if (sunIcon && moonIcon) {
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
       }
     } else {
-      document.body.classList.remove('light-mode');
+      document.documentElement.setAttribute('data-theme', 'dark');
       if (sunIcon && moonIcon) {
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
@@ -209,6 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const isLight = document.body.classList.contains('light-mode');
       if (isLight) {
         document.body.classList.remove('light-mode');
+        document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
         if (sunIcon && moonIcon) {
           sunIcon.style.display = 'block';
@@ -216,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       } else {
         document.body.classList.add('light-mode');
+        document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
         if (sunIcon && moonIcon) {
           sunIcon.style.display = 'none';

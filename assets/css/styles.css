@@ -1,5 +1,39 @@
 /* Compiled styles.css (derived from styles.scss) */
+
+/* ========================================
+  THEME FLASH PREVENTION
+  ======================================== */
+
+/* Apply light theme immediately if localStorage indicates light mode */
+/* This prevents flash of dark mode before JavaScript loads */
+
+/* CSS-based theme application using data-theme attribute */
+[data-theme="light"] {
+  --bg-app: #ffffff;
+  --card: #ffffff;
+  --card-darker: #f8f9fa;
+  --text: #212529;
+  --muted: #6c757d;
+  --accent: #10b981;
+}
+
+[data-theme="dark"] {
+  --bg-app: #0b0f12;
+  --card: #0f1720;
+  --card-darker: #0b1116;
+  --text: #e6eef6;
+  --muted: #8b949e;
+  --accent: #10b981;
+}
+
+/* Ensure body element respects the data-theme attribute */
+body {
+  background: var(--bg-app);
+  color: var(--text);
+}
+
 :root {
+  /* Default dark theme variables (fallback) */
   --bg-app: #0b0f12;
   --card: #0f1720;
   --card-darker: #0b1116;
