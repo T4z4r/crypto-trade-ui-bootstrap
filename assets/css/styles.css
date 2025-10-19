@@ -772,6 +772,10 @@ body {
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.06) !important;
   color: #d1fae5 !important;
   text-shadow: 0 0 6px rgba(16, 185, 129, 0.12) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+  position: relative;
 }
 .nav-link.active {
    background: rgba(16, 185, 129, 0.12) !important;
@@ -786,6 +790,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .nav-list li {
@@ -811,6 +816,10 @@ body {
   color: #d1fae5 !important;
   text-shadow: 0 0 6px rgba(16, 185, 129, 0.12) !important;
   text-decoration: none;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+  position: relative;
 }
 
 .nav-item.active {
@@ -819,6 +828,10 @@ body {
   color: #d1fae5 !important;
   text-shadow: 0 0 8px rgba(16, 185, 129, 0.16) !important;
   border: 2px solid rgba(16, 185, 129, 0.2) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+  position: relative;
 }
 
 /* Light mode styles for normal HTML navigation */
@@ -830,6 +843,10 @@ body {
   background: rgba(16, 185, 129, 0.08) !important;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.06) !important;
   color: var(--accent) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+  position: relative;
 }
 
 .light-mode .nav-item.active {
@@ -838,6 +855,10 @@ body {
   color: var(--accent) !important;
   text-shadow: 0 0 8px rgba(16, 185, 129, 0.16) !important;
   border: 2px solid rgba(16, 185, 129, 0.2) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+  position: relative;
 }
 
 /* Attractive Page Header Styles */
@@ -1509,6 +1530,108 @@ a[href*="dashboard.html"]:hover svg {
   background: rgba(0, 0, 0, 0.05);
   color: #6c757d !important;
   opacity: 1;
+}
+
+/* ========================================
+   SIDEBAR DROPDOWN MENU STYLING
+   ======================================== */
+
+/* Dropdown menu item styling */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.nav-item-dropdown .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.nav-item-dropdown .dropdown-arrow {
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+.nav-item-dropdown .nav-item[aria-expanded="true"] .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Submenu styling */
+.nav-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.nav-sublist li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-subitem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 0.375rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.nav-subitem:hover {
+  color: var(--accent);
+  background: rgba(16, 185, 129, 0.1);
+  text-decoration: none;
+}
+
+.nav-subitem svg {
+  flex-shrink: 0;
+}
+
+/* Light mode dropdown styling */
+.light-mode .nav-sublist {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .nav-subitem {
+  color: #6c757d;
+}
+
+.light-mode .nav-subitem:hover {
+  color: #059669;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+/* Collapsed submenu animation */
+.nav-item-dropdown .collapse {
+  transition: height 0.2s ease;
+}
+
+.nav-item-dropdown .collapse:not(.show) {
+  display: none;
+}
+
+/* Mobile responsiveness for dropdown */
+@media (max-width: 768px) {
+  .nav-sublist {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0.25rem 0;
+  }
+
+  .nav-subitem {
+    padding: 0.75rem 1rem;
+    margin: 0;
+  }
 }
 
 /* Light mode form check styling */
