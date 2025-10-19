@@ -189,22 +189,288 @@
 
         <!-- Transactions Content -->
         <section id="transactions" class="section active-section">
+          <!-- Summary Statistics -->
+          <div class="row g-3 mb-4">
+            <div class="col-lg-3">
+              <div class="card card-dark p-3 h-100">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="stat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="muted small">Total Volume</div>
+                </div>
+                <h4 class="mt-1">$2,847,350</h4>
+                <div class="text-success small mt-1">+12.5% (30d)</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-dark p-3 h-100">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="stat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M20 8v6M23 11l-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="muted small">Total Transactions</div>
+                </div>
+                <h4 class="mt-1">1,247</h4>
+                <div class="text-success small mt-1">+8.2% (30d)</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-dark p-3 h-100">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="stat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="muted small">Pending Orders</div>
+                </div>
+                <h4 class="mt-1 text-warning">3</h4>
+                <div class="text-muted small mt-1">2 withdrawals</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-dark p-3 h-100">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="stat-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="muted small">Success Rate</div>
+                </div>
+                <h4 class="mt-1 text-success">98.7%</h4>
+                <div class="text-success small mt-1">+0.3% (30d)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filters and Search -->
+          <div class="card card-dark p-3 mb-4">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3">
+                <label class="form-label small text-muted">Search</label>
+                <input type="text" id="transactionSearch" class="form-control bg-card text-light border-secondary" placeholder="Search transactions...">
+              </div>
+              <div class="col-lg-2">
+                <label class="form-label small text-muted">Type</label>
+                <select id="typeFilter" class="form-select bg-card text-light border-secondary">
+                  <option value="">All Types</option>
+                  <option value="deposit">Deposit</option>
+                  <option value="withdrawal">Withdrawal</option>
+                  <option value="trade">Trade</option>
+                  <option value="fee">Fee</option>
+                  <option value="staking">Staking</option>
+                </select>
+              </div>
+              <div class="col-lg-2">
+                <label class="form-label small text-muted">Currency</label>
+                <select id="currencyFilter" class="form-select bg-card text-light border-secondary">
+                  <option value="">All Currencies</option>
+                  <option value="USD">USD</option>
+                  <option value="BTC">BTC</option>
+                  <option value="ETH">ETH</option>
+                  <option value="USDT">USDT</option>
+                  <option value="SOL">SOL</option>
+                </select>
+              </div>
+              <div class="col-lg-2">
+                <label class="form-label small text-muted">Status</label>
+                <select id="statusFilter" class="form-select bg-card text-light border-secondary">
+                  <option value="">All Status</option>
+                  <option value="completed">Completed</option>
+                  <option value="pending">Pending</option>
+                  <option value="failed">Failed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+              <div class="col-lg-3">
+                <div class="d-flex gap-2">
+                  <button id="applyFilters" class="btn btn-primary btn-sm">Apply Filters</button>
+                  <button id="clearFilters" class="btn btn-outline-secondary btn-sm">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transaction Table -->
           <div class="card card-dark p-3">
-            <h6>Transaction History</h6>
-            <table class="table table-dark table-striped mt-3 small mb-0">
-              <thead><tr><th>Date</th><th>Type</th><th>Currency</th><th>Amount</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr><td>2025-10-10</td><td>Deposit</td><td>USD</td><td>$500</td><td class="text-success">Completed</td></tr>
-                <tr><td>2025-09-29</td><td>Withdrawal</td><td>BTC</td><td>0.01</td><td class="text-warning">Pending</td></tr>
-              </tbody>
-            </table>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0">Transaction History</h6>
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary btn-sm">
+                  <svg width="16" height="16" class="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Export
+                </button>
+                <div class="dropdown">
+                  <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    25 per page
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">10 per page</a></li>
+                    <li><a class="dropdown-item" href="#">25 per page</a></li>
+                    <li><a class="dropdown-item" href="#">50 per page</a></li>
+                    <li><a class="dropdown-item" href="#">100 per page</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table id="transactionsTable" class="table table-dark small mb-0">
+                <thead>
+                  <tr>
+                    <th class="border-0">Transaction ID</th>
+                    <th class="border-0">Date & Time</th>
+                    <th class="border-0">Type</th>
+                    <th class="border-0">Currency</th>
+                    <th class="border-0">Amount</th>
+                    <th class="border-0">USD Value</th>
+                    <th class="border-0">Status</th>
+                    <th class="border-0 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="transactionsTableBody">
+                  <!-- Transactions will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div class="text-muted small">
+                Showing <span id="startRecord">1</span> to <span id="endRecord">25</span> of <span id="totalRecords">247</span> transactions
+              </div>
+              <nav aria-label="Transaction pagination">
+                <ul class="pagination pagination-sm mb-0">
+                  <li class="page-item disabled">
+                    <a class="page-link bg-card text-light border-secondary" href="#">Previous</a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link bg-primary text-light" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link bg-card text-light border-secondary" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link bg-card text-light border-secondary" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link bg-card text-light border-secondary" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </section>
       </main>
     </div>
   </div>
 
+  <!-- Transaction Details Modal -->
+  <div class="modal fade" id="transactionModal" tabindex="-1" aria-labelledby="transactionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-card border-secondary">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title text-light" id="transactionModalLabel">Transaction Details</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label text-muted small">Transaction ID</label>
+                <div class="fw-semibold" id="modalTxId">TXN-202501150001</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">Date & Time</label>
+                <div class="fw-semibold" id="modalDateTime">2025-01-15 14:30:25 UTC</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">Type</label>
+                <div class="fw-semibold" id="modalType">Buy Order</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">Currency Pair</label>
+                <div class="fw-semibold" id="modalCurrency">BTC/USD</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label text-muted small">Amount</label>
+                <div class="fw-semibold" id="modalAmount">0.025 BTC</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">USD Value</label>
+                <div class="fw-semibold text-success" id="modalUsdValue">$1,456.78</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">Fee</label>
+                <div class="fw-semibold text-warning" id="modalFee">$2.89</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">Status</label>
+                <div class="fw-semibold">
+                  <span class="badge bg-success" id="modalStatus">Completed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Details -->
+          <div class="row g-4 mt-2">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label text-muted small">Network</label>
+                <div class="fw-semibold" id="modalNetwork">Bitcoin</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">Confirmations</label>
+                <div class="fw-semibold" id="modalConfirmations">6/6</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label text-muted small">Blockchain TX</label>
+                <div class="fw-semibold">
+                  <a href="#" class="text-success" id="modalBlockchainTx">View on Explorer</a>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-muted small">Processing Time</label>
+                <div class="fw-semibold" id="modalProcessingTime">2 minutes 15 seconds</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="mt-4">
+            <label class="form-label text-muted small">Notes</label>
+            <div class="bg-darker p-3 rounded" id="modalNotes">Standard Bitcoin network transaction with regular processing time.</div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">View Receipt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/transactions.js"></script>
 </body>
 </html>
