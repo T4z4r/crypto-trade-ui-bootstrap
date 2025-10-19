@@ -210,7 +210,9 @@ class CryptoChartManager {
     // Initialize trading chart
     initTradingChart(containerId) {
         if (document.getElementById(containerId)) {
-            this.charts[containerId] = Highcharts.stockChart(containerId, this.createTradingChartConfig());
+            const config = this.createTradingChartConfig();
+            config.chart.height = containerId === 'priceChart' ? 500 : 480;
+            this.charts[containerId] = Highcharts.stockChart(containerId, config);
         }
     }
 
@@ -255,9 +257,14 @@ document.addEventListener('DOMContentLoaded', function() {
         chartManager.initDashboardChart('chartArea');
     }
 
-    // Initialize trading chart if chart exists
+    // Initialize trading chart if chart exists (index.html)
     if (document.getElementById('chart')) {
         chartManager.initTradingChart('chart');
+    }
+
+    // Initialize trading chart if priceChart exists (trading.html)
+    if (document.getElementById('priceChart')) {
+        chartManager.initTradingChart('priceChart');
     }
 
     // Update chart data every 5 seconds for demo purposes
