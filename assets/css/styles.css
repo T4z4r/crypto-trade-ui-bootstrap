@@ -259,6 +259,37 @@ body {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.02);
 }
+
+.chart-container {
+  position: relative;
+  height: 260px;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Chart.js specific styling */
+#priceChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Light mode chart styling */
+.light-mode .chart-container {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.01),
+    rgba(0, 0, 0, 0.02)
+  );
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
 .btn-success {
   background: var(--accent);
   border-color: var(--accent);

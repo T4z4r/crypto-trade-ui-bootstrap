@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const amountInput = document.getElementById('amountInput');
   const estimatedTotal = document.getElementById('estimatedTotal');
   const orderBook = document.getElementById('orderBook');
+  const priceChart = document.getElementById('priceChart');
 
   // Dashboard-specific elements (only exist on dashboard page)
   const recentTrades = document.getElementById('recentTrades');
@@ -165,6 +166,202 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(()=> msg.classList.add('show'), 20);
       setTimeout(()=> { msg.classList.remove('show'); setTimeout(()=> msg.remove(),200); }, 3000);
     });
+  }
+
+  // Chart functionality (only runs if priceChart exists)
+  let priceChartInstance = null;
+  let chartUpdateInterval = null;
+
+  if (priceChart) {
+    // Generate dummy price data
+    function generatePriceData(points = 50) {
+      const basePrice = pairSelect ? getBasePrice(pairSelect.value) : 58240;
+      const data = [];
+      let currentPrice = basePrice;
+
+      for (let i = 0; i < points; i++) {
+        // Generate realistic price movements
+        const change = (Math.random() - 0.5) * 200; // Random change between -100 and +100
+        currentPrice = Math.max(currentPrice + change, basePrice * 0.8); // Don't go below 80% of base
+
+        data.push([
+          Date.now() - (points - i) * 60000, // timestamp in milliseconds
+          Math.round(currentPrice * 100) / 100
+        ]);
+      }
+
+      return data;
+    }
+
+    // Get base price for different trading pairs
+    function getBasePrice(pair) {
+      const prices = {
+        'BTC / USD': 58240,
+        'ETH / USD': 3420,
+        'SOL / USD': 98,
+        'ADA / USD': 0.45
+      };
+      return prices[pair] || 58240;
+    }
+
+    // Initialize chart
+    function initializeChart() {
+      const initialData = generatePriceData();
+
+      priceChartInstance = Highcharts.chart('priceChart', {
+        chart: {
+          type: 'area',
+          backgroundColor: 'transparent',
+          height: 400,
+          animation: {
+            duration: 1000,
+            easing: 'easeInOutQuart'
+          }
+        },
+        title: {
+          text: null
+        },
+        xAxis: {
+          type: 'datetime',
+          gridLineColor: 'rgba(255, 255, 255, 0.02)',
+          lineColor: 'rgba(255, 255, 255, 0.05)',
+          tickColor: 'rgba(255, 255, 255, 0.05)',
+          labels: {
+            style: {
+              color: 'rgba(255, 255, 255, 0.6)'
+            }
+          }
+        },
+        yAxis: {
+          opposite: true,
+          gridLineColor: 'rgba(255, 255, 255, 0.02)',
+          lineColor: 'rgba(255, 255, 255, 0.05)',
+          tickColor: 'rgba(255, 255, 255, 0.05)',
+          labels: {
+            style: {
+              color: 'rgba(255, 255, 255, 0.6)'
+            },
+            formatter: function() {
+              return '$' + this.value.toLocaleString();
+            }
+          }
+        },
+        legend: {
+          enabled: false
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 32, 0.9)',
+          borderColor: 'rgba(16, 185, 129, 0.5)',
+          borderRadius: 8,
+          style: {
+            color: '#e6eef6'
+          },
+          formatter: function() {
+            return '<b>' + new Date(this.x).toLocaleTimeString() + '</b><br/>Price: $' + this.y.toLocaleString();
+          }
+        },
+        plotOptions: {
+          area: {
+            fillColor: {
+              linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+              stops: [
+                [0, 'rgba(16, 185, 129, 0.3)'],
+                [1, 'rgba(16, 185, 129, 0.0)']
+              ]
+            },
+            marker: {
+              radius: 2
+            },
+            lineWidth: 2,
+            states: {
+              hover: {
+                lineWidth: 2
+              }
+            },
+            threshold: null
+          }
+        },
+        series: [{
+          type: 'area',
+          name: 'Price',
+          data: initialData,
+          color: '#10b981',
+          lineColor: '#10b981'
+        }]
+      });
+    }
+
+    // Update chart with new data point
+    function updateChart() {
+      if (!priceChartInstance) return;
+
+      const currentData = priceChartInstance.series[0].data;
+      const lastPoint = currentData[currentData.length - 1];
+      const lastPrice = lastPoint.y;
+      const change = (Math.random() - 0.5) * 150; // Smaller changes for realism
+      const newPrice = Math.max(lastPrice + change, getBasePrice(pairSelect.value) * 0.85);
+
+      // Add new data point
+      currentData.addPoint([
+        Date.now(),
+        Math.round(newPrice * 100) / 100
+      ], true, false);
+
+      // Keep only last 50 points for performance
+      if (currentData.length > 50) {
+        currentData.removePoint(0, false);
+      }
+
+      // Update current price display in price input
+      if (priceInput) {
+        priceInput.value = Math.round(newPrice * 100) / 100;
+        if (estimatedTotal) updateEstimated();
+      }
+    }
+
+    // Start real-time updates
+    function startRealTimeUpdates() {
+      if (chartUpdateInterval) clearInterval(chartUpdateInterval);
+      chartUpdateInterval = setInterval(updateChart, 2000); // Update every 2 seconds
+    }
+
+    // Stop real-time updates
+    function stopRealTimeUpdates() {
+      if (chartUpdateInterval) {
+        clearInterval(chartUpdateInterval);
+        chartUpdateInterval = null;
+      }
+    }
+
+    // Initialize chart and start updates
+    initializeChart();
+    startRealTimeUpdates();
+
+    // Update chart when trading pair changes
+    if (pairSelect) {
+      pairSelect.addEventListener('change', () => {
+        // Update chart title
+        if (tradingTitle) tradingTitle.textContent = pairSelect.value + ' — Chart';
+
+        // Regenerate chart data for new pair
+        if (priceChartInstance) {
+          const newData = generatePriceData();
+          priceChartInstance.series[0].setData(newData, true);
+
+          // Update price input with new base price
+          if (priceInput) {
+            priceInput.value = getBasePrice(pairSelect.value);
+            if (estimatedTotal) updateEstimated();
+          }
+        }
+
+        // Update submit button label
+        if (submitOrder) {
+          const base = pairSelect.value.split(' ')[0];
+          submitOrder.textContent = (buyBtn && buyBtn.classList.contains('active') ? 'Buy ' : 'Sell ') + base;
+        }
+      });
+    }
   }
 
   // initial setup
