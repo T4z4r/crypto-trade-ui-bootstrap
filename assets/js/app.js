@@ -1,5 +1,170 @@
 // app.js - handles theme toggle, trading functionality, and UI interactions
+// Global initialization flag to prevent multiple loading
+window.appInitialized = false;
+
+// ========================================
+// PAGE LOADER FUNCTIONALITY
+// ========================================
+
+// Page Loader Management
+class PageLoader {
+  constructor() {
+    // Singleton pattern - only one instance allowed
+    if (PageLoader.instance) {
+      return PageLoader.instance;
+    }
+
+    this.loader = document.getElementById('pageLoader');
+    this.statusText = document.querySelector('.loader-status');
+    this.progressBar = document.querySelector('.loader-progress-bar');
+    this.loadSteps = [
+      'Initializing Cryptix',
+      'Loading assets',
+      'Connecting to markets',
+      'Preparing interface',
+      'Ready to trade'
+    ];
+    this.currentStep = 0;
+    this.progressInterval = null;
+    this.isLoading = false; // Flag to prevent concurrent loaders
+
+    PageLoader.instance = this;
+  }
+
+  // Static method to get the singleton instance
+  static getInstance() {
+    if (!PageLoader.instance) {
+      PageLoader.instance = new PageLoader();
+    }
+    return PageLoader.instance;
+  }
+
+  show() {
+    // Prevent multiple concurrent loaders
+    if (this.isLoading || !this.loader) {
+      return;
+    }
+
+    this.isLoading = true;
+    this.loader.classList.remove('hidden');
+    this.currentStep = 0;
+    this.updateStatus();
+    this.startProgress();
+  }
+
+  hide() {
+    if (this.loader && this.isLoading) {
+      this.isLoading = false;
+      this.loader.classList.add('hidden');
+      this.stopProgress();
+    }
+  }
+
+  updateStatus() {
+    if (this.statusText && this.loadSteps[this.currentStep]) {
+      this.statusText.textContent = this.loadSteps[this.currentStep];
+    }
+  }
+
+  startProgress() {
+    this.stopProgress();
+    this.progressInterval = setInterval(() => {
+      this.currentStep++;
+      if (this.currentStep >= this.loadSteps.length) {
+        this.currentStep = 0;
+      }
+      this.updateStatus();
+    }, 800);
+  }
+
+  stopProgress() {
+    if (this.progressInterval) {
+      clearInterval(this.progressInterval);
+      this.progressInterval = null;
+    }
+  }
+
+  // Method to force complete loading and hide loader
+  completeLoad() {
+    if (this.loader && this.isLoading) {
+      this.isLoading = false;
+      this.loader.classList.add('hidden');
+      this.stopProgress();
+    }
+  }
+
+  // Method to check if loader is currently active
+  isActive() {
+    return this.isLoading && this.loader && !this.loader.classList.contains('hidden');
+  }
+
+  // Simulate loading for demo purposes
+  simulateLoad(duration = 2500) {
+    // Don't start if already loading
+    if (this.isLoading) {
+      return;
+    }
+
+    this.show();
+    setTimeout(() => {
+      this.hide();
+    }, duration);
+  }
+}
+
+// Initialize page loader (singleton)
+const pageLoader = PageLoader.getInstance();
+
+// Initialize page loader and navigation functionality
+function initializePageLoader() {
+  // Only initialize if not already done
+  if (pageLoader.initialized) {
+    return;
+  }
+  pageLoader.initialized = true;
+
+  // Show loader immediately when page starts loading
+  if (pageLoader.loader && !pageLoader.isLoading) {
+    pageLoader.show();
+  }
+
+  // Handle navigation clicks for demo purposes
+  const navLinks = document.querySelectorAll('.nav-item, .nav-link');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Only show loader for internal navigation (demo)
+      if (this.getAttribute('href') && this.getAttribute('href').includes('.html')) {
+        e.preventDefault();
+
+        // Only trigger loader if not already loading
+        if (!pageLoader.isLoading) {
+          pageLoader.simulateLoad(1500);
+
+          // Simulate page transition
+          setTimeout(() => {
+            window.location.href = this.getAttribute('href');
+          }, 1500);
+        } else {
+          // If already loading, just navigate after current load completes
+          setTimeout(() => {
+            window.location.href = this.getAttribute('href');
+          }, 500);
+        }
+      }
+    });
+  });
+}
+
+// Export for use in other scripts if needed
+window.PageLoader = pageLoader;
+
 document.addEventListener('DOMContentLoaded', function () {
+  // Prevent multiple initialization
+  if (window.appInitialized) {
+    return;
+  }
+  window.appInitialized = true;
   // Theme toggle functionality (works on all pages)
   const themeToggle = document.getElementById('themeToggle');
   const sunIcon = document.getElementById('sunIcon');
@@ -321,6 +486,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Start real-time updates
     function startRealTimeUpdates() {
+      // Prevent multiple intervals
       if (chartUpdateInterval) clearInterval(chartUpdateInterval);
       chartUpdateInterval = setInterval(updateChart, 2000); // Update every 2 seconds
     }
@@ -367,107 +533,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // initial setup
   initializeTheme();
   if (priceInput && amountInput && estimatedTotal) updateEstimated();
+
+  // Initialize page loader functionality
+  initializePageLoader();
+
+  // Complete loading when page is fully loaded
+  window.addEventListener('load', function() {
+    // Give a small delay to ensure all resources are loaded
+    setTimeout(() => {
+      if (pageLoader && pageLoader.isActive()) {
+        // Only complete the load if we're still in the initial loading phase
+        // This prevents conflicts with simulated loading
+        pageLoader.completeLoad();
+      }
+    }, 100);
+  });
 });
 
-// ========================================
-// PAGE LOADER FUNCTIONALITY
-// ========================================
-
-// Page Loader Management
-class PageLoader {
- constructor() {
-   this.loader = document.getElementById('pageLoader');
-   this.statusText = document.querySelector('.loader-status');
-   this.progressBar = document.querySelector('.loader-progress-bar');
-   this.loadSteps = [
-     'Initializing Cryptix',
-     'Loading assets',
-     'Connecting to markets',
-     'Preparing interface',
-     'Ready to trade'
-   ];
-   this.currentStep = 0;
-   this.progressInterval = null;
- }
-
- show() {
-   if (this.loader) {
-     this.loader.classList.remove('hidden');
-     this.currentStep = 0;
-     this.updateStatus();
-     this.startProgress();
-   }
- }
-
- hide() {
-   if (this.loader) {
-     this.loader.classList.add('hidden');
-     this.stopProgress();
-   }
- }
-
- updateStatus() {
-   if (this.statusText && this.loadSteps[this.currentStep]) {
-     this.statusText.textContent = this.loadSteps[this.currentStep];
-   }
- }
-
- startProgress() {
-   this.stopProgress();
-   this.progressInterval = setInterval(() => {
-     this.currentStep++;
-     if (this.currentStep >= this.loadSteps.length) {
-       this.currentStep = 0;
-     }
-     this.updateStatus();
-   }, 800);
- }
-
- stopProgress() {
-   if (this.progressInterval) {
-     clearInterval(this.progressInterval);
-     this.progressInterval = null;
-   }
- }
-
- // Simulate loading for demo purposes
- simulateLoad(duration = 2500) {
-   this.show();
-   setTimeout(() => {
-     this.hide();
-   }, duration);
- }
-}
-
-// Initialize page loader
-const pageLoader = new PageLoader();
-
-// Show loader on page load
-document.addEventListener('DOMContentLoaded', function() {
- // Simulate initial loading
- pageLoader.simulateLoad(2000);
-});
-
-// Navigation loader functionality
-document.addEventListener('DOMContentLoaded', function() {
- // Handle navigation clicks for demo purposes
- const navLinks = document.querySelectorAll('.nav-item, .nav-link');
-
- navLinks.forEach(link => {
-   link.addEventListener('click', function(e) {
-     // Only show loader for internal navigation (demo)
-     if (this.getAttribute('href') && this.getAttribute('href').includes('.html')) {
-       e.preventDefault();
-       pageLoader.simulateLoad(1500);
-
-       // Simulate page transition
-       setTimeout(() => {
-         window.location.href = this.getAttribute('href');
-       }, 1500);
-     }
-   });
- });
-});
-
-// Export for use in other scripts if needed
-window.PageLoader = pageLoader;

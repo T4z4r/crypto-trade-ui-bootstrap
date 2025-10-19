@@ -278,23 +278,29 @@ class CryptoChartManager {
 // Global chart manager instance
 const chartManager = new CryptoChartManager();
 
-// Initialize charts when DOM is loaded
+// Initialize charts when DOM is loaded (only if not already initialized by app.js)
 document.addEventListener('DOMContentLoaded', function() {
+    // Prevent multiple initialization
+    if (window.chartsInitialized) {
+        return;
+    }
+    window.chartsInitialized = true;
+
     if (document.getElementById('chartArea')) {
         chartManager.initDashboardChart('chartArea');
     }
     if (document.getElementById('chart')) {
         chartManager.initTradingChart('chart');
     }
-    if (document.getElementById('priceChart')) {
-        chartManager.initTradingChart('priceChart');
-    }
+    // Skip priceChart initialization as it's handled by app.js for trading page
     if (document.getElementById('portfolioChart')) {
         chartManager.initPortfolioChart('portfolioChart');
     }
 
-    // Update chart data every 5 seconds
-    setInterval(() => {
-        chartManager.updateChartData();
-    }, 5000);
+    // Update chart data every 5 seconds (only if we have charts)
+    if (Object.keys(chartManager.charts).length > 0) {
+        setInterval(() => {
+            chartManager.updateChartData();
+        }, 5000);
+    }
 });
