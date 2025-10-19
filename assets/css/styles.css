@@ -275,6 +275,50 @@ body {
   overflow: hidden;
 }
 
+/* Statistics card styling */
+.card-dark {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+}
+
+/* Statistics card icon styling */
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(98, 0, 255, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.stat-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Hover effect for stat icons */
+.card-dark:hover .stat-icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(98, 0, 255, 0.15));
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Light mode stat icon styling */
+.light-mode .stat-icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(34, 197, 94, 0.08));
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #059669;
+}
+
 /* Chart.js specific styling */
 #priceChart {
   width: 100% !important;
