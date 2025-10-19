@@ -1489,6 +1489,28 @@ a[href*="dashboard.html"]:hover svg {
   border-color: rgba(16, 185, 129, 0.25);
 }
 
+/* ========================================
+   VERSION TEXT STYLING
+   ======================================== */
+
+/* Version text styling for better visibility */
+.position-fixed.bottom-0 .text-muted.small {
+  color: var(--muted) !important;
+  opacity: 0.9;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Light mode version text styling */
+.light-mode .position-fixed.bottom-0 .text-muted.small {
+  background: rgba(0, 0, 0, 0.05);
+  color: #6c757d !important;
+  opacity: 1;
+}
+
 /* Light mode form check styling */
 .light-mode .form-check-input:checked {
   background-color: #059669 !important;
