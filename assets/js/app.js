@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const orderBook = document.getElementById('orderBook');
   const recentTrades = document.getElementById('recentTrades');
   const goTrading = document.getElementById('goTrading');
+  const themeToggle = document.getElementById('themeToggle');
+  const sunIcon = document.getElementById('sunIcon');
+  const moonIcon = document.getElementById('moonIcon');
 
   function showSection(id) {
     sections.forEach(sec => {
@@ -167,7 +170,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // theme toggle functionality
+  function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-mode');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    } else {
+      document.body.classList.remove('light-mode');
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    }
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.body.classList.contains('light-mode');
+      if (isLight) {
+        document.body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        document.body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    });
+  }
+
   // initial setup
+  initializeTheme();
   showSection('dashboard');
   updateEstimated();
 });

@@ -7,6 +7,116 @@
   --muted: #9aa4b2;
   --accent: #10b981;
 }
+.light-mode {
+  --bg-app: #ffffff;
+  --card: #ffffff;
+  --card-darker: #f8f9fa;
+  --text: #212529;
+  --muted: #6c757d;
+  --accent: #10b981;
+}
+.light-mode body {
+  background: var(--bg-app);
+  color: var(--text);
+}
+.light-mode .sidebar {
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.light-mode .card {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.light-mode .chart-area {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.02));
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.light-mode .orderbook li {
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+.light-mode .modal-content.bg-card {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.light-mode .bg-darker {
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+.light-mode .form-control.bg-darker {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.light-mode .text-light {
+  color: var(--text) !important;
+}
+.light-mode .bg-app {
+  background-color: var(--bg-app) !important;
+}
+.light-mode .form-select {
+  color: var(--text) !important;
+}
+.light-mode .form-select option {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+}
+.light-mode .dropdown-menu {
+  background-color: var(--card) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.light-mode .dropdown-item {
+  color: var(--text) !important;
+}
+.light-mode .dropdown-item:hover {
+  background-color: var(--card-darker) !important;
+  color: var(--text) !important;
+}
+.light-mode .btn-close-white {
+  filter: none !important;
+}
+.light-mode .modal-content {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+}
+.light-mode .table-dark {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+}
+.light-mode .table-dark th,
+.light-mode .table-dark td,
+.light-mode .table-dark thead th {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+.light-mode .badge.bg-card {
+  background-color: var(--card-darker) !important;
+  color: var(--text) !important;
+}
+.light-mode .btn-outline-secondary {
+  color: var(--text) !important;
+  border-color: var(--muted) !important;
+}
+.light-mode .btn-outline-secondary:hover {
+  background-color: var(--card-darker) !important;
+  color: var(--text) !important;
+  border-color: var(--muted) !important;
+}
+.light-mode .nav-link {
+  color: var(--text) !important;
+}
+.light-mode .nav-link:hover {
+  background: rgba(16, 185, 129, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.06) !important;
+  color: var(--accent) !important;
+}
+.light-mode .nav-link.active {
+  background: rgba(16, 185, 129, 0.12) !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.08) !important;
+  color: var(--accent) !important;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.16) !important;
+  border: 2px solid rgba(16, 185, 129, 0.2) !important;
+}
+.light-mode .brand {
+  color: var(--accent) !important;
+}
+.light-mode .text-secondary {
+  color: var(--muted) !important;
+}
 body {
   background: var(--bg-app);
   color: var(--text);
