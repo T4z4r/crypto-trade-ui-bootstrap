@@ -1,5 +1,11 @@
 // app.js - handles theme toggle, trading functionality, and UI interactions
 document.addEventListener('DOMContentLoaded', function () {
+  // Sidebar toggle functionality (works on all pages)
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebar = document.querySelector('.sidebar');
+  const sidebarOverlay = document.createElement('div');
+  sidebarOverlay.className = 'sidebar-overlay';
+
   // Theme toggle functionality (works on all pages)
   const themeToggle = document.getElementById('themeToggle');
   const sunIcon = document.getElementById('sunIcon');
@@ -20,6 +26,48 @@ document.addEventListener('DOMContentLoaded', function () {
   // Dashboard-specific elements (only exist on dashboard page)
   const recentTrades = document.getElementById('recentTrades');
   const goTrading = document.getElementById('goTrading');
+
+  // Sidebar toggle functionality
+  function initializeSidebar() {
+    // Add overlay to body for mobile
+    document.body.appendChild(sidebarOverlay);
+
+    // Load saved sidebar state
+    const savedSidebarState = localStorage.getItem('sidebarCollapsed') === 'true';
+    if (savedSidebarState && window.innerWidth >= 768) {
+      sidebar.classList.add('collapsed');
+    }
+
+    // Sidebar toggle event
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          // Mobile: show/hide overlay sidebar
+          sidebar.classList.toggle('show');
+          sidebarOverlay.classList.toggle('show');
+        } else {
+          // Desktop: collapse/expand sidebar
+          sidebar.classList.toggle('collapsed');
+          const isCollapsed = sidebar.classList.contains('collapsed');
+          localStorage.setItem('sidebarCollapsed', isCollapsed);
+        }
+      });
+    }
+
+    // Close sidebar when clicking overlay on mobile
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('show');
+      sidebarOverlay.classList.remove('show');
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        sidebar.classList.remove('show');
+        sidebarOverlay.classList.remove('show');
+      }
+    });
+  }
 
   // Theme toggle functionality (works on all pages)
   function initializeTheme() {
@@ -365,6 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // initial setup
+  initializeSidebar();
   initializeTheme();
   if (priceInput && amountInput && estimatedTotal) updateEstimated();
 });
